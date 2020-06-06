@@ -30,7 +30,6 @@ def process_data(input):
 
 
 def list_users(full_info=False):
-    print('----->Listing users')
     users = pd.read_hdf(users_db_path, key='df')
     if not full_info:
         users = users['user_id']
@@ -38,26 +37,22 @@ def list_users(full_info=False):
 
 
 def save_users(users):
-    print('----->Saving users')
     users.to_hdf(users_db_path, key='df')
 
 
 
 def list_trx():
-    print('----->Listing trx')
     transactions = pd.read_hdf(trx_log_path, key='df')
 
     return transactions
 
 
 def save_trx(trx_list):
-    print('----->Saving trx')
     trx_list.to_hdf(trx_log_path, key='df')
 
 
 
 def allocate_iou_id():
-    print('----->Allocating iou id')
     transactions = list_trx()
     new_iou_id = transactions['IOU_id'].max() + 1
     row = pd.Series({'trx_id': new_iou_id, 'IOU_id': None, 'creditor_id': None, 'debtor_id': None,
@@ -69,7 +64,6 @@ def allocate_iou_id():
 
 
 def update_iou(iou_dict):
-    print('----->Updating IOU')
     transactions = list_trx()
     row = pd.Series(iou_dict)
     transactions = transactions.loc[transactions['IOU_id'] != iou_dict['IOU_id']].append(row, ignore_index=True)
@@ -99,7 +93,6 @@ def check_user(user_id):
 
 
 def write_user(user):
-    print('----->Writing user')
     user_id = user['user_id']
     f_name = user['f_name']
     l_name = user['l_name']
