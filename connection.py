@@ -27,10 +27,9 @@ while True:
         except AttributeError:
             print('Wrong server command')
         print('Processed data')
-        print(output)
+        # print(output)
         output_pickled = pickle.dumps(output)
-        print('Pickled output')
         client_sock.sendall(pickle.dumps(output))
-        print('Sent data back')
+        print('Sent response')
 
     client_sock.close()
