@@ -3,6 +3,7 @@ import pickle
 from core import process_data
 from paths import server_port, server_ip
 
+print('Starting server')
 serv_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM, proto=0)
 serv_sock.bind((server_ip, server_port)) # IP, port
 serv_sock.listen(10)
