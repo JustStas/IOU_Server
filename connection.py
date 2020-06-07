@@ -17,19 +17,22 @@ while True:
 
     while True:
         # Read untill client disconnects and send back
-        input = client_sock.recv(1024)
-        if not input:
-            # Client disconnected
-            break
-        print('Received data')
         try:
-            output = process_data(pickle.loads(input))
-        except AttributeError:
-            print('Wrong server command')
-        print('Processed data')
-        # print(output)
-        output_pickled = pickle.dumps(output)
-        client_sock.sendall(pickle.dumps(output))
-        print('Sent response')
+            input = client_sock.recv(1024)
+            if not input:
+                # Client disconnected
+                break
+            print('Received data')
+            try:
+                output = process_data(pickle.loads(input))
+            except AttributeError:
+                print('Wrong server command')
+            print('Processed data')
+            # print(output)
+            output_pickled = pickle.dumps(output)
+            client_sock.sendall(pickle.dumps(output))
+            print('Sent response')
+        except ConnectionResetError:
+            print(ConnectionResetError)
 
     client_sock.close()
