@@ -111,6 +111,7 @@ def amount_check(user_pair):
     if creditor_id is not None:
         log = log.loc[log['creditor_id'] == creditor_id]
     log = log.loc[log['creditor_id'] != log['debtor_id']]
+    print(log)
     return round(log['amount'].sum(), 2)
 
 def check_user(user_id):
