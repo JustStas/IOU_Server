@@ -130,7 +130,7 @@ def write_user(user):
     f_name = user['f_name']
     l_name = user['l_name']
     users = list_users(full_info=True)
-    if user_id is not None:
+    if user_id != -1:
         if user_id in users['user_id']:
             users.loc[users['user_id'] == user_id] = {'user_id': user_id, 'f_name': f_name, 'l_name': l_name}
         else:
