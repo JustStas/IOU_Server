@@ -66,7 +66,7 @@ def list_trx():
 
 
 def save_trx(trx_list):
-    trx_list.to_hdf(iou_log_path, key='df')
+    trx_list.to_hdf(trx_log_path, key='df')
 
 
 
@@ -82,13 +82,13 @@ def allocate_iou_id():
 
 def allocate_trx_id():
     transactions = list_trx()
-    new_iou_id = transactions['trx_id'].max() + 1
-    row = pd.Series({'trx_id': new_iou_id, 'trx_name': None, 'creditor_id': None, 'debtors_id': None,
+    new_trx_id = transactions['trx_id'].max() + 1
+    row = pd.Series({'trx_id': new_trx_id, 'trx_name': None, 'creditor_id': None, 'debtors_id': None,
                      'currency': None, 'amount': None, 'date': None})
     transactions = transactions.append(row, ignore_index=True)
     save_trx(transactions)
 
-    return new_iou_id
+    return new_trx_id
 
 
 def update_iou(iou_dict):
