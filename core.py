@@ -31,7 +31,7 @@ def process_data(input):
     if command == 'check_user':
         output = check_user(data)
     if command == 'write_user':
-        write_user(data)
+        output = write_user(data)
     if command =='check_trx':
         output = check_trx(data)
 
