@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e37e72c-7286-4c37-8ef5-9f574f46aaba" name="Default Changelist" comment="Corrections to IOU saving">
+    <list default="true" id="8e37e72c-7286-4c37-8ef5-9f574f46aaba" name="Default Changelist" comment="Testing verbose log">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -154,7 +154,21 @@
       <option name="project" value="LOCAL" />
       <updated>1591541505181</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Testing verbose log">
+      <created>1591543138097</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1591543138097</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Testing verbose log">
+      <created>1591543334759</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1591543334759</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -182,16 +196,17 @@
     <MESSAGE value="Added check_trx" />
     <MESSAGE value="Bug fixes" />
     <MESSAGE value="Corrections to IOU saving" />
-    <option name="LAST_COMMIT_MESSAGE" value="Corrections to IOU saving" />
+    <MESSAGE value="Testing verbose log" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testing verbose log" />
   </component>
   <component name="WindowStateProjectService">
     <state x="587" y="88" key="CommitChangelistDialog2" timestamp="1591537811854">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="587" y="88" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1591537811854" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1591541508476">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1591543368953">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1591541508476" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1591543368953" />
   </component>
 </project>

@@ -108,14 +108,9 @@ def amount_check(user_pair):
     log = list_ious()
     if debtor_id is not None:
         log = log.loc[log['debtor_id'] == debtor_id]
-        print('filtered by debtor', debtor_id)
-        print(log)
     if creditor_id is not None:
         log = log.loc[log['creditor_id'] == creditor_id]
-        print('filtered by creditor', creditor_id)
-        print(log)
     log = log.loc[log['creditor_id'] != log['debtor_id']]
-    print(log)
     return round(log['amount'].sum(), 2)
 
 def check_user(user_id):
