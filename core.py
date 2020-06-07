@@ -1,5 +1,6 @@
 import pandas as pd
 from paths import trx_log_path, users_db_path
+from admin_functions import reset_databases
 
 
 def process_data(input):
@@ -24,6 +25,8 @@ def process_data(input):
     if command == 'check_user':
         output = check_user(data)
     if command == 'allocate_iou_id':
+        output = allocate_iou_id()
+    if command == 'reset_databases':
         output = allocate_iou_id()
 
     return output
@@ -55,7 +58,7 @@ def save_trx(trx_list):
 def allocate_iou_id():
     transactions = list_trx()
     new_iou_id = transactions['IOU_id'].max() + 1
-    row = pd.Series({'trx_id': new_iou_id, 'IOU_id': None, 'creditor_id': None, 'debtor_id': None,
+    row = pd.Series({'trx_id': None, 'IOU_id': new_iou_id, 'creditor_id': None, 'debtor_id': None,
                      'currency': None, 'amount': None, 'date': None})
     transactions = transactions.append(row, ignore_index=True)
     save_trx(transactions)
