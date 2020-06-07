@@ -32,6 +32,8 @@ def process_data(input):
         output = check_user(data)
     if command == 'write_user':
         write_user(data)
+    if command =='check_trx':
+        output = check_trx(data)
 
     if command == 'reset_databases':
         output = reset_databases()
@@ -144,4 +146,12 @@ def write_user(user):
     save_users(users)
 
     return user_id
+
+def check_trx(trx_id):
+    trx_list = list_trx()
+    try:
+        trx_details = trx_list.loc[trx_list['trx_id'] == trx_id].iloc[0]
+    except IndexError:
+        trx_details = None
+    return trx_details
 

@@ -19,11 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e37e72c-7286-4c37-8ef5-9f574f46aaba" name="Default Changelist" comment="Updated new user creation">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_functions.py" afterDir="false" />
+    <list default="true" id="8e37e72c-7286-4c37-8ef5-9f574f46aaba" name="Default Changelist" comment="Corrections in core functions">
       <change beforePath="$PROJECT_DIR$/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/core.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/paths.py" beforeDir="false" afterPath="$PROJECT_DIR$/paths.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591537857864</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Corrections in core functions">
+      <created>1591540076453</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1591540076453</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -146,16 +150,17 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Updated new user creation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated new user creation" />
+    <MESSAGE value="Corrections in core functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Corrections in core functions" />
   </component>
   <component name="WindowStateProjectService">
     <state x="587" y="88" key="CommitChangelistDialog2" timestamp="1591537811854">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="587" y="88" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1591537811854" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1591537867105">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1591540078547">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1591537867105" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1591540078547" />
   </component>
 </project>
