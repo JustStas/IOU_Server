@@ -1,5 +1,5 @@
 import pandas as pd
-from paths import trx_log_path, users_db_path
+from paths import trx_log_path, iou_log_path, users_db_path
 from admin_functions import reset_databases
 
 
@@ -10,24 +10,32 @@ def process_data(input):
     data = input[1]
     if command == 'list_users':
         output = list_users()
+    if command == 'save_users':
+        save_users(data)
+    if command == 'list_ious':
+        output = list_ious()
     if command == 'list_trx':
         output = list_trx()
     if command == 'save_trx':
         save_trx(data)
-    if command == 'save_users':
-        save_users(data)
-    if command == 'update_iou':
-        update_iou(data)
-    if command == 'amount_check':
-        output = amount_check(data)
-    if command == 'write_user':
-        write_user(data)
-    if command == 'check_user':
-        output = check_user(data)
     if command == 'allocate_iou_id':
         output = allocate_iou_id()
+    if command == 'allocate_trx_id':
+        output = allocate_trx_id()
+    if command == 'update_iou':
+        update_iou(data)
+    if command == 'update_trx':
+        update_trx(data)
+    if command == 'amount_check':
+        output = amount_check(data)
+    if command == 'check_user':
+        output = check_user(data)
+    if command == 'write_user':
+        write_user(data)
+
     if command == 'reset_databases':
-        output = allocate_iou_id()
+        output = reset_databases()
+
 
     return output
 
@@ -44,6 +52,11 @@ def save_users(users):
 
 
 
+def list_ious():
+    ious = pd.read_hdf(iou_log_path, key='df')
+
+    return ious
+
 def list_trx():
     transactions = pd.read_hdf(trx_log_path, key='df')
 
@@ -51,12 +64,12 @@ def list_trx():
 
 
 def save_trx(trx_list):
-    trx_list.to_hdf(trx_log_path, key='df')
+    trx_list.to_hdf(iou_log_path, key='df')
 
 
 
 def allocate_iou_id():
-    transactions = list_trx()
+    transactions = list_ious()
     new_iou_id = transactions['IOU_id'].max() + 1
     row = pd.Series({'trx_id': None, 'IOU_id': new_iou_id, 'creditor_id': None, 'debtor_id': None,
                      'currency': None, 'amount': None, 'date': None})
@@ -65,18 +78,34 @@ def allocate_iou_id():
 
     return new_iou_id
 
+def allocate_trx_id():
+    transactions = list_trx()
+    new_iou_id = transactions['trx_id'].max() + 1
+    row = pd.Series({'trx_id': new_iou_id, 'trx_name': None, 'creditor_id': None, 'debtors_id': None,
+                     'currency': None, 'amount': None, 'date': None})
+    transactions = transactions.append(row, ignore_index=True)
+    save_trx(transactions)
+
+    return new_iou_id
+
 
 def update_iou(iou_dict):
-    transactions = list_trx()
+    transactions = list_ious()
     row = pd.Series(iou_dict)
     transactions = transactions.loc[transactions['IOU_id'] != iou_dict['IOU_id']].append(row, ignore_index=True)
+    save_trx(transactions)
+
+def update_trx(trx_dict):
+    transactions = list_trx()
+    row = pd.Series(trx_dict)
+    transactions = transactions.loc[transactions['trx_id'] != trx_dict['trx_id']].append(row, ignore_index=True)
     save_trx(transactions)
 
 
 def amount_check(user_pair):
     debtor_id = user_pair['debtor_id']
     creditor_id = user_pair['creditor_id']
-    log = list_trx()
+    log = list_ious()
     if debtor_id is not None:
         log = log.loc[log['debtor_id'] == debtor_id]
     if creditor_id is not None:

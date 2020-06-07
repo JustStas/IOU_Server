@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e37e72c-7286-4c37-8ef5-9f574f46aaba" name="Default Changelist" comment="">
+    <list default="true" id="8e37e72c-7286-4c37-8ef5-9f574f46aaba" name="Default Changelist" comment="Updated new user creation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/core.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paths.py" beforeDir="false" afterPath="$PROJECT_DIR$/paths.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +115,14 @@
       <option name="presentableId" value="Default" />
       <updated>1590247308094</updated>
     </task>
+    <task id="LOCAL-00001" summary="Updated new user creation">
+      <created>1591537857864</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1591537857864</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -102,7 +130,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -111,5 +145,17 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Updated new user creation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated new user creation" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="587" y="88" key="CommitChangelistDialog2" timestamp="1591537811854">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="587" y="88" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1591537811854" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1591537867105">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1591537867105" />
   </component>
 </project>
