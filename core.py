@@ -68,8 +68,6 @@ def list_trx():
 def save_trx(trx_list):
     trx_list.to_hdf(trx_log_path, key='df')
 
-
-
 def allocate_iou_id():
     transactions = list_ious()
     new_iou_id = transactions['IOU_id'].max() + 1
