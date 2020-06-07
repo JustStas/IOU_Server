@@ -85,13 +85,14 @@ def amount_check(user_pair):
     return round(log['amount'].sum(), 2)
 
 def check_user(user_id):
-    user_credentials = None
     users = list_users(full_info=True)
-    user_line = users.loc[users['user_id'] == user_id].iloc[0]
-    if user_line.shape[0] > 0:
+    try:
+        user_line = users.loc[users['user_id'] == user_id].iloc[0]
         f_name = user_line['f_name']
         l_name = user_line['l_name']
         user_credentials = {'f_name': f_name, 'l_name': l_name}
+    except IndexError:
+        user_credentials = None
     return user_credentials
 
 
