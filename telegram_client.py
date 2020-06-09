@@ -9,14 +9,10 @@ def reply(message):
     print(message)
     bot.reply_to(message, 'Das is text')
 
-@bot.message_handler(content_types=['contact'])
-def reply(message):
-    print(message)
-    bot.reply_to(message, 'Das is contact')
-
-@bot.inline_handler(lambda query: query.query == 'text')
-def query_text(inline_query):
-    bot.answer_inline_query(inline_query.id, 'I can answer you!')
+@bot.message_handler(commands=['start', 'help'])
+def send_welcome(message):
+    print('Incoming')
+    bot.reply_to(message, "Howdy, how are you doing?")
 
 
 

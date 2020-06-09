@@ -291,7 +291,21 @@
       <option name="project" value="LOCAL" />
       <updated>1591723941419</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added dummy telebot">
+      <created>1591725388324</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1591725388324</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Added dummy telebot">
+      <created>1591725458316</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1591725458316</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -348,9 +362,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591723247817" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1591723942513">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1591725459461">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1591723942513" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1591725459461" />
   </component>
 </project>
