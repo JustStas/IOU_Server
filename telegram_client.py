@@ -4,15 +4,18 @@ bot = telebot.TeleBot('1012372350:AAG7N6oZPE5mi9uLSsNwwvN2fZhHEJRlNVk')
 
 print('Bot started')
 
+@bot.message_handler(commands=['start', 'help'])
+def send_welcome(message):
+    print('Incoming')
+    bot.reply_to(message, "Howdy, how are you doing?")
+
+
 @bot.message_handler(content_types=['text'])
 def reply(message):
     print(message)
     bot.reply_to(message, 'Das is text')
 
-@bot.message_handler(commands=['start', 'help'])
-def send_welcome(message):
-    print('Incoming')
-    bot.reply_to(message, "Howdy, how are you doing?")
+
 
 
 
