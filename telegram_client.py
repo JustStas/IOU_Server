@@ -4,7 +4,7 @@ bot = telebot.TeleBot('1012372350:AAG7N6oZPE5mi9uLSsNwwvN2fZhHEJRlNVk')
 
 print('Bot started')
 
-@bot.message_handler(content_types=['video'])
+@bot.message_handler(content_types=['message'])
 def reply(message):
     bot.reply_to(message, 'Das is reply')
 
