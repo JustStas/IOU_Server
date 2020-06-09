@@ -6,7 +6,13 @@ print('Bot started')
 
 @bot.message_handler(content_types=['text'])
 def reply(message):
-    bot.reply_to(message, 'Das is reply')
+    print(message)
+    bot.reply_to(message, 'Das is text')
+
+@bot.message_handler(content_types=['contact'])
+def reply(message):
+    print(message)
+    bot.reply_to(message, 'Das is contact')
 
 while True:
     bot.polling()
