@@ -32,6 +32,8 @@ def balance_overview(message):
         user1 = User(user_id=user_id)
         user1.load()
         user1.describe()
+        to_print += '\n'
+        to_print += user1.f_name
         user1_balance = user1.balance()
         to_print += '\n'
         to_print += ('Accumulated debt: {0} RUB'.format(user1_balance[0]))
