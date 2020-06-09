@@ -2,7 +2,7 @@ import pandas as pd
 from paths import trx_log_path, iou_log_path, users_db_path
 from admin_functions import reset_databases
 
-def server_conn(command, data):
+def server_conn(command, data=None):
     data_source = [command, data]
     data_output = None
     try:
