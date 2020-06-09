@@ -2,6 +2,16 @@ import pandas as pd
 from paths import trx_log_path, iou_log_path, users_db_path
 from admin_functions import reset_databases
 
+def server_conn(command, data):
+    data_source = [command, data]
+    data_output = None
+    try:
+        data_output = process_data(data_source)
+    except Exception:
+        print(Exception)
+
+    return data_output
+
 
 def process_data(input):
     output = None
