@@ -105,4 +105,4 @@ def query_text(inline_query):
 
 
 
-
+bot.polling()
