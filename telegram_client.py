@@ -103,7 +103,7 @@ def balance(message):
         print('id',id)
         keyboard.add(types.InlineKeyboardButton(id, callback_data=id))
     user_ids = bot.send_message(message.chat.id, 'Who do you want to load?', reply_markup=keyboard)
-    bot.register_for_reply(user_ids, load_user)
+    bot.register_next_step_handler(user_ids, load_user)
 
 def load_user(message):
     print('HERE')
