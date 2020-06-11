@@ -112,7 +112,7 @@ class User:
                 self.f_name = input('Enter user first name: ')
                 self.l_name = input('Enter user last name: ')
                 self.write()
-        self.describe(short=False)
+        self.description = self.describe(short=False)
 
     def write(self):
         user = {'user_id': self.user_id, 'f_name': self.f_name, 'l_name': self.l_name}
