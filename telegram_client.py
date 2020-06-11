@@ -36,12 +36,15 @@ def balance_overview(message):
     else:
         to_print += '\nWrong input'
         return
+    print('I AM HERE2', message.text)
     users = server_conn('list_users')
+    print('I AM HERE3', message.text)
     counterpart_ids = users.to_list()
     if not user_ids:
         user_ids = counterpart_ids
 
     for user_id in user_ids:
+        print('I AM HERE4', message.text)
         to_print += '\n'
         to_print += ('=' * 50)
         user1 = User(user_id=user_id)
