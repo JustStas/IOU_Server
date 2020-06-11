@@ -5,6 +5,7 @@ from telebot import types
 from telebot.apihelper import ApiException
 from core import server_conn
 from classes import User
+from support_functions import str_to_list
 
 bot = telebot.TeleBot('1012372350:AAG7N6oZPE5mi9uLSsNwwvN2fZhHEJRlNVk')
 
@@ -18,7 +19,6 @@ def balance(message):
 
 
 def balance_overview(message):
-    print('I AM HERE', message.text)
 
     if message.text == '':
         user_ids = -1
@@ -38,6 +38,13 @@ def balance_overview(message):
         pass
     elif isinstance(user_ids, int):
         user_ids = [user_ids]
+    elif isinstance(user_ids, str):
+        user_ids = str_to_list(user_ids)
+        for i in user_ids:
+            if not isinstance(i, str):
+                to_print += '\nWrong input'
+                bot.reply_to(message, to_print)
+                return
     else:
         to_print += '\nWrong input'
         bot.reply_to(message, to_print)
