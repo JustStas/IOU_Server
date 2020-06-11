@@ -3,13 +3,14 @@ import requests
 import time
 from telebot import types
 from telebot.apihelper import ApiException
-from core import server_conn
+from core import server_conn, list_users
 from classes import User
 from support_functions import str_to_list
 
 bot = telebot.TeleBot('1012372350:AAG7N6oZPE5mi9uLSsNwwvN2fZhHEJRlNVk')
 
 print('Bot started')
+
 
 @bot.message_handler(commands=['balance_overview'])
 def balance(message):
@@ -19,7 +20,6 @@ def balance(message):
 
 
 def balance_overview(message):
-
     if message.text == '':
         user_ids = -1
     else:
@@ -94,96 +94,18 @@ def balance_overview(message):
     bot.reply_to(message, to_print)
 
 
-# @bot.message_handler(content_types=['text'])
-# def reply(message):
-#     bot.reply_to(message, 'Das is text')
+@bot.message_handler(commands=['load_user'])
+def balance(message):
+    buttons = []
+    user_ids = list_users()
+    for id in user_ids:
+        buttons.append([types.InlineKeyboardButton(id, callback_data=id)])
+    markup = types.InlineKeyboardMarkup(buttons)
+    user_ids = bot.send_message(message.chat.id, 'Who do you want to load?', reply_markup=markup)
+    bot.register_for_reply(user_ids, load_user)
 
-
-
-
-
-# {'content_type': 'text',
-#  'message_id': 8,
-#  'from_user':
-#      {'id': 278810318,
-#       'is_bot': False,
-#       'first_name': 'Stanislav',
-#       'username': 'JustStas',
-#       'last_name': None,
-#       'language_code': 'ru'},
-#  'date': 1591723973,
-#  'chat': {'type': 'private',
-#           'last_name': None,
-#           'first_name': 'Stanislav',
-#           'username': 'JustStas',
-#           'id': 278810318,
-#           'title': None,
-#           'all_members_are_administrators': None,
-#           'photo': None,
-#           'description': None,
-#           'invite_link': None,
-#           'pinned_message': None,
-#           'sticker_set_name': None,
-#           'can_set_sticker_set': None},
-#  'forward_from': None,
-#  'forward_from_chat': None,
-#  'forward_from_message_id': None,
-#  'forward_signature': None,
-#  'forward_date': None,
-#  'reply_to_message': None,
-#  'edit_date': None,
-#  'media_group_id': None,
-#  'author_signature': None,
-#  'text': 'Олег 🐔',
-#  'entities': None,
-#  'caption_entities': None,
-#  'audio': None,
-#  'document': None,
-#  'photo': None,
-#  'sticker': None,
-#  'video': None,
-#  'video_note': None,
-#  'voice': None,
-#  'caption': None,
-#  'contact': None,
-#  'location': None,
-#  'venue': None,
-#  'animation': None,
-#  'dice': None,
-#  'new_chat_member': None,
-#  'new_chat_members': None,
-#  'left_chat_member': None,
-#  'new_chat_title': None,
-#  'new_chat_photo': None,
-#  'delete_chat_photo': None,
-#  'group_chat_created': None,
-#  'supergroup_chat_created': None,
-#  'channel_chat_created': None,
-#  'migrate_to_chat_id': None,
-#  'migrate_from_chat_id': None,
-#  'pinned_message': None,
-#  'invoice': None,
-#  'successful_payment': None,
-#  'connected_website': None,
-#  'json': {'message_id': 8,
-#           'from': {'id': 278810318,
-#                    'is_bot': False,
-#                    'first_name': 'Stanislav',
-#                    'username': 'JustStas',
-#                    'language_code': 'ru'},
-#           'chat': {'id': 278810318,
-#                    'first_name': 'Stanislav',
-#                    'username': 'JustStas',
-#                    'type': 'private'},
-#           'date': 1591723973,
-#           'text': 'Олег 🐔',
-#           'entities': [{'offset': 0,
-#                         'length': 7,
-#                         'type': 'text_mention',
-#                         'user': {'id': 327154479,
-#                                  'is_bot': False,
-#                                  'first_name': 'Oleg',
-#                                  'last_name': 'Dylevich'}}]}}
+def load_user(message):
+    bot.reply_to(message, message.text)
 
 
 while True:
