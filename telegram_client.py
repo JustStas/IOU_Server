@@ -106,7 +106,7 @@ def balance(message):
     bot.register_next_step_handler(user_ids, load_user)
 
 def load_user(message):
-    user = User(user_id=message.text)
+    user = User(user_id=int(message.text))
     user.load()
     bot.reply_to(message, user.description)
 
