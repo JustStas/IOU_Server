@@ -96,7 +96,7 @@ def balance_overview(message):
 
 @bot.message_handler(commands=['load_user'])
 def balance(message):
-    keyboard = types.InlineKeyboardMarkup()
+    keyboard = types.ReplyKeyboardMarkup()
     user_ids = list_users()
     print(user_ids)
     for id in user_ids:
