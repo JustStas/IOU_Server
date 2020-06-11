@@ -39,12 +39,15 @@ def balance_overview(message):
     elif isinstance(user_ids, int):
         user_ids = [user_ids]
     elif isinstance(user_ids, str):
-        user_ids = str_to_list(user_ids)
-        for i in user_ids:
-            if not isinstance(i, int):
-                to_print += '\nWrong input'
-                bot.reply_to(message, to_print)
-                return
+        try:
+            user_ids = str_to_list(user_ids)
+            for i in user_ids:
+                if not isinstance(i, int):
+                    to_print += '\nWrong input'
+                    bot.reply_to(message, to_print)
+                    return
+        except Exception:
+            pass
     else:
         to_print += '\nWrong input'
         bot.reply_to(message, to_print)
@@ -86,7 +89,6 @@ def balance_overview(message):
                 to_print += ('Debt to {0}: {1} RUB:'.format(user2.f_name, debt_to_counterpart))
                 to_print += '\n'
                 to_print += ('Receivables from {0}: {1} RUB'.format(user2.f_name, receivables_from_counterpart))
-    print('NOW I AM HERE')
     bot.reply_to(message, to_print)
 
 
