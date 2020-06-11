@@ -97,13 +97,11 @@ def balance_overview(message):
 @bot.message_handler(commands=['load_user'])
 def balance(message):
     keyboard = types.InlineKeyboardMarkup()
-    buttons = []
     user_ids = list_users()
     print(user_ids)
     for id in user_ids:
         print('id',id)
-        buttons.append(types.InlineKeyboardButton(id, callback_data=id))
-    keyboard.add(buttons)
+        keyboard.add(types.InlineKeyboardButton(id, callback_data=id))
     user_ids = bot.send_message(message.chat.id, 'Who do you want to load?', reply_markup=keyboard)
     bot.register_for_reply(user_ids, load_user)
 
