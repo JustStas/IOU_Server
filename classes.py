@@ -137,7 +137,7 @@ class User:
         if short:
             to_print += ('\nFirst name: ' + self.f_name)
         else:
-            to_print += ('\nID:' + self.user_id)
+            to_print += ('\nID:' + str(self.user_id))
             to_print += ('\nFirst name:' + self.f_name)
             to_print += ('\nLast name:' + self.l_name)
         print(to_print)
