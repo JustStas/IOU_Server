@@ -97,7 +97,6 @@ class User:
 
     def load(self):
         credentials = server_conn('check_user', self.user_id)
-        print('cred', credentials)
         if credentials is not None:
             self.f_name = credentials['f_name']
             self.l_name = credentials['l_name']
@@ -113,7 +112,7 @@ class User:
                 self.f_name = input('Enter user first name: ')
                 self.l_name = input('Enter user last name: ')
                 self.write()
-        self.describe()
+        self.describe(short=False)
 
     def write(self):
         user = {'user_id': self.user_id, 'f_name': self.f_name, 'l_name': self.l_name}
