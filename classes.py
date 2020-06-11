@@ -93,6 +93,7 @@ class User:
         self.user_id = user_id
         self.f_name = f_name
         self.l_name = l_name
+        self.description = self.describe(short=False)
 
     def load(self):
         credentials = server_conn('check_user', self.user_id)
@@ -111,6 +112,7 @@ class User:
                 self.f_name = input('Enter user first name: ')
                 self.l_name = input('Enter user last name: ')
                 self.write()
+        self.describe()
 
     def write(self):
         user = {'user_id': self.user_id, 'f_name': self.f_name, 'l_name': self.l_name}
@@ -131,9 +133,12 @@ class User:
         return [debt, receivables]
 
     def describe(self, short=True):
+        to_print = ''
         if short:
-            print('First name:', self.f_name)
+            to_print += ('\nFirst name: ' + self.f_name)
         else:
-            print('ID:', self.user_id)
-            print('First name:', self.f_name)
-            print('Last name:', self.l_name)
+            to_print += ('\nID:' + self.user_id)
+            to_print += ('\nFirst name:' + self.f_name)
+            to_print += ('\nLast name:' + self.l_name)
+        print(to_print)
+        return to_print
