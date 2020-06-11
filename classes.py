@@ -136,10 +136,10 @@ class User:
     def describe(self, short=True):
         to_print = ''
         if short:
-            to_print += ('\nFirst name: ' + self.f_name)
+            to_print += ('\nFirst name: ' + str(self.f_name))
         else:
             to_print += ('\nID:' + str(self.user_id))
-            to_print += ('\nFirst name:' + self.f_name)
-            to_print += ('\nLast name:' + self.l_name)
+            to_print += ('\nFirst name:' + str(self.f_name))
+            to_print += ('\nLast name:' + str(self.l_name))
         print(to_print)
         return to_print
