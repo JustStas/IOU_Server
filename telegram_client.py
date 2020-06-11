@@ -1,4 +1,5 @@
 import telebot
+from telebot import types
 from core import server_conn
 from classes import User
 
@@ -9,6 +10,11 @@ print('Bot started')
 @bot.message_handler(commands=['balance_overview'])
 def balance_overview(message):
     user_ids = -1
+
+    markup = types.ForceReply(selective=False)
+    test = bot.reply_to(message, 'Who do you want the overview for?', markup=markup)
+    print(test)
+
     print('Telegram --> Balance overview')
     to_print = ''
 
@@ -31,7 +37,6 @@ def balance_overview(message):
         to_print += ('=' * 50)
         user1 = User(user_id=user_id)
         user1.load()
-        user1.describe()
         to_print += '\n'
         to_print += user1.f_name
         user1_balance = user1.balance()
