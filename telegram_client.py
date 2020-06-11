@@ -107,6 +107,7 @@ def load_user(message):
     user = User(user_id=int(message.text))
     user.load()
     bot.reply_to(message, user.description)
+    bot.send_message(message.chat.id, user.description, reply_markup=types.ReplyKeyboardRemove())
 
 
 while True:
