@@ -18,13 +18,12 @@ def balance(message):
 
 
 def balance_overview(message):
-    print('I AM HERE')
+    print('I AM HERE', message.text)
 
     if message.text == '':
         user_ids = -1
     else:
         user_ids = message.text
-
 
     to_print = ''
 
@@ -75,9 +74,9 @@ def balance_overview(message):
     bot.reply_to(message, to_print)
 
 
-@bot.message_handler(content_types=['text'])
-def reply(message):
-    bot.reply_to(message, 'Das is text')
+# @bot.message_handler(content_types=['text'])
+# def reply(message):
+#     bot.reply_to(message, 'Das is text')
 
 
 
