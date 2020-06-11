@@ -97,6 +97,7 @@ class User:
 
     def load(self):
         credentials = server_conn('check_user', self.user_id)
+        print('cred', credentials)
         if credentials is not None:
             self.f_name = credentials['f_name']
             self.l_name = credentials['l_name']
@@ -137,11 +138,8 @@ class User:
         if short:
             to_print += ('\nFirst name: ' + self.f_name)
         else:
-            print(self.user_id)
             to_print += ('\nID:' + str(self.user_id))
-            print('n', self.f_name)
             to_print += ('\nFirst name:' + self.f_name)
-            print('fn', self.l_name)
             to_print += ('\nLast name:' + self.l_name)
         print(to_print)
         return to_print
