@@ -106,6 +106,7 @@ def balance(message):
     bot.register_for_reply(user_ids, load_user)
 
 def load_user(message):
+    print('HERE')
     bot.reply_to(message, message.text)
 
 
