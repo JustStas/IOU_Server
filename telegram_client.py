@@ -47,7 +47,9 @@ def balance_overview(message):
                     bot.reply_to(message, to_print)
                     return
         except Exception:
-            pass
+            to_print += '\nWrong input'
+            bot.reply_to(message, to_print)
+            return
     else:
         to_print += '\nWrong input'
         bot.reply_to(message, to_print)
