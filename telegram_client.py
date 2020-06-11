@@ -1,4 +1,6 @@
 import telebot
+import requests
+import time
 from telebot import types
 from core import server_conn
 from classes import User
@@ -157,5 +159,8 @@ def reply(message):
 #                                  'last_name': 'Dylevich'}}]}}
 
 
-
-bot.polling()
+while True:
+    try:
+        bot.polling()
+    except requests.exceptions.ReadTimeout:
+        time.sleep(15)
