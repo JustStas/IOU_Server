@@ -2,6 +2,7 @@ import telebot
 import requests
 import time
 from telebot import types
+from telebot.apihelper import ApiException
 from core import server_conn
 from classes import User
 
@@ -168,5 +169,6 @@ def reply(message):
 while True:
     try:
         bot.polling()
-    except requests.exceptions.ReadTimeout:
+    except (requests.exceptions.ReadTimeout, ApiException) as e:
+        print('Error!!! Falling to sleep for 15 seconds...')
         time.sleep(15)
