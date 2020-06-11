@@ -98,7 +98,9 @@ def balance_overview(message):
 def balance(message):
     buttons = []
     user_ids = list_users()
+    print(user_ids)
     for id in user_ids:
+        print('id',id)
         buttons.append(types.InlineKeyboardButton(id, callback_data=id))
     markup = types.InlineKeyboardMarkup(buttons)
     user_ids = bot.send_message(message.chat.id, 'Who do you want to load?', reply_markup=markup)
