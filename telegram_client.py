@@ -27,6 +27,11 @@ def balance_overview(message):
 
     to_print = ''
 
+    try:
+        user_ids = int(user_ids)
+    except ValueError:
+        pass
+
     if user_ids == -1:
         user_ids = []
     elif isinstance(user_ids, list):
@@ -35,6 +40,7 @@ def balance_overview(message):
         user_ids = [user_ids]
     else:
         to_print += '\nWrong input'
+        bot.reply_to(message, to_print)
         return
     print('I AM HERE2', message.text)
     users = server_conn('list_users')
