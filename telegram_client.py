@@ -11,6 +11,7 @@ print('Bot started')
 
 @bot.message_handler(commands=['balance_overview'])
 def balance_overview(message):
+    print(message)
     user_ids = -1
     markup = types.ForceReply(selective=False)
     bot.send_message(message.chat.id, 'Who do you want the overview for?', reply_markup=markup)
