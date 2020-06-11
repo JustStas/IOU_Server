@@ -169,6 +169,7 @@ def balance_overview(message):
 while True:
     try:
         bot.polling()
-    except (requests.exceptions.ReadTimeout, ApiException) as e:
+    except Exception as e:
+        print(e)
         print('Error!!! Falling to sleep for 15 seconds...')
         time.sleep(15)
