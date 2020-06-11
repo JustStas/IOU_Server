@@ -71,6 +71,7 @@ def balance_overview(message):
                 to_print += ('Debt to {0}: {1} RUB:'.format(user2.f_name, debt_to_counterpart))
                 to_print += '\n'
                 to_print += ('Receivables from {0}: {1} RUB'.format(user2.f_name, receivables_from_counterpart))
+    print('NOW I AM HERE')
     bot.reply_to(message, to_print)
 
 
