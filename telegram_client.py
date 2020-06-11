@@ -41,7 +41,7 @@ def balance_overview(message):
     elif isinstance(user_ids, str):
         user_ids = str_to_list(user_ids)
         for i in user_ids:
-            if not isinstance(i, str):
+            if not isinstance(i, int):
                 to_print += '\nWrong input'
                 bot.reply_to(message, to_print)
                 return
