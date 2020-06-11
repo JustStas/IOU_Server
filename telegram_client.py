@@ -10,15 +10,21 @@ bot = telebot.TeleBot('1012372350:AAG7N6oZPE5mi9uLSsNwwvN2fZhHEJRlNVk')
 print('Bot started')
 
 @bot.message_handler(commands=['balance_overview'])
-def balance_overview(message):
-    print(message)
-    user_ids = -1
+def balance(message):
     markup = types.ForceReply(selective=False)
-    bot.send_message(message.chat.id, 'Who do you want the overview for?', reply_markup=markup)
+    user_ids = bot.send_message(message.chat.id, 'Who do you want the overview for?', reply_markup=markup)
+    bot.register_for_reply(user_ids, balance_overview)
+
+
+def balance_overview(message):
+    if message == '':
+        user_ids = -1
+    else:
+        user_ids = message
+
     # test = bot.reply_to(message, 'Who do you want the overview for?',markup=markup)
     # print(test)
 
-    print('Telegram --> Balance overview')
     to_print = ''
 
     if user_ids == -1:
