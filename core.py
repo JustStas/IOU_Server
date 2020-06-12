@@ -57,6 +57,7 @@ def process_data(input):
 def list_users(full_info=False):
     users = pd.read_hdf(users_db_path, key='df')
     if not full_info:
+        print(users.head())
         users = users['username']
     return users
 
