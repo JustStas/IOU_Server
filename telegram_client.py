@@ -111,8 +111,9 @@ def load_user(message):
 
 @bot.message_handler(content_types=['text'])
 def test(message):
-    print(message.entities[0])
-    print(message.entities[0].type)
+    for ent in message.entities:
+        if ent.type == 'text_mention':
+            print(ent['user']['id'])
     user_ids = bot.send_message(message.chat.id, 'HI')
 
 
