@@ -119,7 +119,7 @@ def test(message):
     #         print(ent)
     #         # print(ent.user.id)
     # user_ids = bot.send_message(message.chat.id, 'HI')
-    user = bot.getChatMember(message.chat.id, user_id="@JustStas")
+    user = bot.get_chat_member(message.chat.id, user_id="@JustStas")
     print(user)
 
 
