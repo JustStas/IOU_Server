@@ -45,11 +45,11 @@ def process_data(input):
         output = write_user(data)
     if command == 'check_trx':
         output = check_trx(data)
-    if command =='check_username_availability':
+    if command == 'check_username_availability':
         output = check_username_availability(data)
 
     if command == 'reset_databases':
-        output = reset_databases()
+        reset_databases()
 
     return output
 
