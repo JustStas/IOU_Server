@@ -96,12 +96,9 @@ def balance_overview(message):
 
 @bot.message_handler(commands=['load_user'])
 def balance(message):
-    keyboard = types.ReplyKeyboardMarkup()
-    user_ids = list_users()
-    for id in user_ids:
-        keyboard.add(types.InlineKeyboardButton(id, callback_data=id))
-    user_ids = bot.send_message(message.chat.id, 'Who do you want to load?', reply_markup=keyboard)
+    user_ids = bot.send_message(message.chat.id, 'Who do you want to load?', reply_markup=keyboard_with_users())
     bot.register_next_step_handler(user_ids, load_user)
+
 
 def load_user(message):
     user = User(user_id=int(message.text))
@@ -109,19 +106,11 @@ def load_user(message):
     bot.reply_to(message, user.description, reply_markup=types.ReplyKeyboardRemove())
 
 
-@bot.message_handler(content_types=['text'])
-def test(message):
-    # print(message)
-    #
-    # for ent in message.entities:
-    #     # if ent.type in ['text_mention', 'mention']:
-    #     if True:
-    #         print(ent)
-    #         # print(ent.user.id)
-    # user_ids = bot.send_message(message.chat.id, 'HI')
-    user = bot.get_chat_member(message.chat.id, user_id="@JustStas")
-    print(user)
-
+def keyboard_with_users(group=None):
+    keyboard = types.ReplyKeyboardMarkup()
+    user_ids = list_users()
+    for id in user_ids:
+        keyboard.add(types.InlineKeyboardButton(id, callback_data=id))
 
 
 while True:
@@ -129,5 +118,5 @@ while True:
         bot.polling()
     except Exception as e:
         print(e)
-        print('Error!!! Falling to sleep for 15 seconds...')
-        time.sleep(15)
+        print('Error!!! Falling to sleep for 60 seconds...')
+        time.sleep(60)

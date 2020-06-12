@@ -2,6 +2,7 @@ import pandas as pd
 from paths import trx_log_path, iou_log_path, users_db_path
 from admin_functions import reset_databases
 
+
 def server_conn(command, data=None):
     data_source = [command, data]
     data_output = None
@@ -42,12 +43,13 @@ def process_data(input):
         output = check_user(data)
     if command == 'write_user':
         output = write_user(data)
-    if command =='check_trx':
+    if command == 'check_trx':
         output = check_trx(data)
+    if command =='check_username_availability':
+        output = check_username_availability(data)
 
     if command == 'reset_databases':
         output = reset_databases()
-
 
     return output
 
@@ -55,7 +57,7 @@ def process_data(input):
 def list_users(full_info=False):
     users = pd.read_hdf(users_db_path, key='df')
     if not full_info:
-        users = users['user_id']
+        users = users['username']
     return users
 
 
@@ -63,11 +65,11 @@ def save_users(users):
     users.to_hdf(users_db_path, key='df')
 
 
-
 def list_ious():
     ious = pd.read_hdf(iou_log_path, key='df')
 
     return ious
+
 
 def list_trx():
     transactions = pd.read_hdf(trx_log_path, key='df')
@@ -78,6 +80,7 @@ def list_trx():
 def save_trx(trx_list):
     trx_list.to_hdf(trx_log_path, key='df')
 
+
 def allocate_iou_id():
     ious = list_ious()
     new_iou_id = ious['IOU_id'].max() + 1
@@ -87,6 +90,7 @@ def allocate_iou_id():
     save_iou(ious)
 
     return new_iou_id
+
 
 def allocate_trx_id():
     transactions = list_trx()
@@ -104,6 +108,7 @@ def update_iou(iou_dict):
     row = pd.Series(iou_dict)
     ious = ious.loc[ious['IOU_id'] != iou_dict['IOU_id']].append(row, ignore_index=True)
     save_iou(ious)
+
 
 def update_trx(trx_dict):
     transactions = list_trx()
@@ -123,10 +128,11 @@ def amount_check(user_pair):
     log = log.loc[log['creditor_id'] != log['debtor_id']]
     return round(log['amount'].sum(), 2)
 
-def check_user(user_id):
+
+def check_user(username):
     users = list_users(full_info=True)
     try:
-        user_line = users.loc[users['user_id'] == user_id].iloc[0]
+        user_line = users.loc[users['username'] == username].iloc[0]
         f_name = user_line['f_name']
         l_name = user_line['l_name']
         user_credentials = {'f_name': f_name, 'l_name': l_name}
@@ -155,6 +161,7 @@ def write_user(user):
 
     return user_id
 
+
 def check_trx(trx_id):
     trx_list = list_trx()
     try:
@@ -163,6 +170,13 @@ def check_trx(trx_id):
         trx_details = None
     return trx_details
 
+
 def save_iou(iou_list):
     iou_list.to_hdf(iou_log_path, key='df')
 
+
+def check_username_availability(test_username):
+    if test_username in list_users():
+        return False
+    else:
+        return True

@@ -89,30 +89,50 @@ class User:
     def __init__(self,
                  user_id=-1,
                  f_name=None,
-                 l_name=None):
+                 l_name=None,
+                 username='',
+                 telegram_id=-1):
         self.user_id = user_id
         self.f_name = f_name
         self.l_name = l_name
+        self.username = username
+        self.telegram_id = telegram_id
         self.description = self.describe(short=False)
 
     def load(self):
-        credentials = server_conn('check_user', self.user_id)
+        credentials = server_conn('check_user', self.username)
         if credentials is not None:
+            self.user_id = credentials['user_id']
             self.f_name = credentials['f_name']
             self.l_name = credentials['l_name']
+            self.telegram_id = credentials['telegram_id']
         else:
-            y_n = None
-            while y_n not in ['y', 'Y', 'n', 'N']:
-                y_n = input('No such user found. Create new user? (y/n) ')
-            if y_n in ['n', 'N']:
-                print('Leaving without user creation.')
+            self.create_new_user()
 
-            if y_n in ['y', 'Y']:
-                self.user_id = max(server_conn('list_users')) + 1
-                self.f_name = input('Enter user first name: ')
-                self.l_name = input('Enter user last name: ')
-                self.write()
         self.description = self.describe(short=False)
+
+    def create_new_user(self):
+        y_n = None
+        while y_n not in ['y', 'Y', 'n', 'N']:
+            y_n = input('No such user found. Create new user? (y/n) ')
+        if y_n in ['n', 'N']:
+            print('Leaving without user creation.')
+
+        if y_n in ['y', 'Y']:
+            self.user_id = max(server_conn('list_users')) + 1
+            good_username = False
+            while not good_username:
+                test_username = input('Enter username: ')
+                if len(test_username) < 4:
+                    print('Username should be at least 4 symbols long')
+                elif server_conn('check_username_availability', test_username):
+                    good_username = True
+                    self.username = test_username
+
+            self.f_name = input('Enter user first name: ')
+            self.l_name = input('Enter user last name: ')
+            self.write()
+
 
     def write(self):
         user = {'user_id': self.user_id, 'f_name': self.f_name, 'l_name': self.l_name}
