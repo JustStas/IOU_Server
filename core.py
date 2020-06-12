@@ -191,3 +191,4 @@ def link_telegram_id(user_and_telegram):
     telegram_id = user_and_telegram[1]
     users = list_users(full_info=True)
     users.loc[users['username'] == username, 'telegram_id'] = telegram_id
+    save_users(users)

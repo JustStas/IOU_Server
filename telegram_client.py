@@ -116,6 +116,7 @@ def link_telegram(message):
     username = message.text
     telegram_id = message.from_user.id
     server_conn('link_telegram_id', [username, telegram_id])
+    bot.reply_to(message, 'Telegram linked to {}'.format(username), reply_markup=types.ReplyKeyboardRemove())
 
 
 
