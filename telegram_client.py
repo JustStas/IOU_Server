@@ -108,9 +108,10 @@ def load_user(message):
 
 def keyboard_with_users(group=None):
     keyboard = types.ReplyKeyboardMarkup()
-    user_ids = list_users()
-    for id in user_ids:
-        keyboard.add(types.InlineKeyboardButton(id, callback_data=id))
+    usernames = list_users()
+    for username in usernames:
+        keyboard.add(types.InlineKeyboardButton(username, callback_data=username))
+    return keyboard
 
 
 while True:
