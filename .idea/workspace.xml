@@ -19,8 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e37e72c-7286-4c37-8ef5-9f574f46aaba" name="Default Changelist" comment="Testing force reply">
-      <change beforePath="$PROJECT_DIR$/telegram_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/telegram_client.py" afterDir="false" />
+    <list default="true" id="8e37e72c-7286-4c37-8ef5-9f574f46aaba" name="Default Changelist" comment="added user linkage to telegram">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,203 +178,350 @@
       <option name="presentableId" value="Default" />
       <updated>1590247308094</updated>
     </task>
-    <task id="LOCAL-00001" summary="Updated new user creation">
-      <created>1591537857864</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
+    <task id="LOCAL-00033" summary="Testing force reply">
+      <created>1591904878515</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
       <option name="project" value="LOCAL" />
-      <updated>1591537857864</updated>
+      <updated>1591904878515</updated>
     </task>
-    <task id="LOCAL-00002" summary="Corrections in core functions">
-      <created>1591540076453</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
+    <task id="LOCAL-00034" summary="Testing force reply">
+      <created>1591905077699</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
       <option name="project" value="LOCAL" />
-      <updated>1591540076453</updated>
+      <updated>1591905077699</updated>
     </task>
-    <task id="LOCAL-00003" summary="Added check_trx">
-      <created>1591540714650</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
+    <task id="LOCAL-00035" summary="Testing force reply">
+      <created>1591905274699</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
       <option name="project" value="LOCAL" />
-      <updated>1591540714650</updated>
+      <updated>1591905274699</updated>
     </task>
-    <task id="LOCAL-00004" summary="Bug fixes">
-      <created>1591540850392</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
+    <task id="LOCAL-00036" summary="Testing force reply">
+      <created>1591905748698</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
       <option name="project" value="LOCAL" />
-      <updated>1591540850392</updated>
+      <updated>1591905748698</updated>
     </task>
-    <task id="LOCAL-00005" summary="Bug fixes">
-      <created>1591540914372</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
+    <task id="LOCAL-00037" summary="Testing force reply">
+      <created>1591906039151</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
       <option name="project" value="LOCAL" />
-      <updated>1591540914372</updated>
+      <updated>1591906039151</updated>
     </task>
-    <task id="LOCAL-00006" summary="Corrections to IOU saving">
-      <created>1591541505181</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
+    <task id="LOCAL-00038" summary="Testing force reply">
+      <created>1591906117268</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
       <option name="project" value="LOCAL" />
-      <updated>1591541505181</updated>
+      <updated>1591906117268</updated>
     </task>
-    <task id="LOCAL-00007" summary="Testing verbose log">
-      <created>1591543138097</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
+    <task id="LOCAL-00039" summary="Testing force reply">
+      <created>1591906321490</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
       <option name="project" value="LOCAL" />
-      <updated>1591543138097</updated>
+      <updated>1591906321490</updated>
     </task>
-    <task id="LOCAL-00008" summary="Testing verbose log">
-      <created>1591543334759</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
+    <task id="LOCAL-00040" summary="Testing force reply">
+      <created>1591906373013</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
       <option name="project" value="LOCAL" />
-      <updated>1591543334759</updated>
+      <updated>1591906373013</updated>
     </task>
-    <task id="LOCAL-00009" summary="removed excessive verbosity">
-      <created>1591543901123</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
+    <task id="LOCAL-00041" summary="Testing buttons">
+      <created>1591908746623</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
       <option name="project" value="LOCAL" />
-      <updated>1591543901123</updated>
+      <updated>1591908746623</updated>
     </task>
-    <task id="LOCAL-00010" summary="Switched base user # to -1">
-      <created>1591544637170</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
+    <task id="LOCAL-00042" summary="Testing buttons">
+      <created>1591908854817</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
       <option name="project" value="LOCAL" />
-      <updated>1591544637170</updated>
+      <updated>1591908854817</updated>
     </task>
-    <task id="LOCAL-00011" summary="Corrected 'Write user'">
-      <created>1591545110893</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
+    <task id="LOCAL-00043" summary="Testing buttons">
+      <created>1591908916193</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
       <option name="project" value="LOCAL" />
-      <updated>1591545110893</updated>
+      <updated>1591908916193</updated>
     </task>
-    <task id="LOCAL-00012" summary="Added ConnectionResetError management">
-      <created>1591545624841</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
+    <task id="LOCAL-00044" summary="Testing buttons">
+      <created>1591909182203</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
       <option name="project" value="LOCAL" />
-      <updated>1591545624841</updated>
+      <updated>1591909182203</updated>
     </task>
-    <task id="LOCAL-00013" summary="Added dummy telebot">
-      <created>1591723275836</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
+    <task id="LOCAL-00045" summary="Testing buttons">
+      <created>1591909243482</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
       <option name="project" value="LOCAL" />
-      <updated>1591723275836</updated>
+      <updated>1591909243482</updated>
     </task>
-    <task id="LOCAL-00014" summary="Added dummy telebot">
-      <created>1591723379487</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
+    <task id="LOCAL-00046" summary="Testing buttons">
+      <created>1591909342856</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
       <option name="project" value="LOCAL" />
-      <updated>1591723379487</updated>
+      <updated>1591909342856</updated>
     </task>
-    <task id="LOCAL-00015" summary="Added dummy telebot">
-      <created>1591723574384</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
+    <task id="LOCAL-00047" summary="Testing buttons">
+      <created>1591909642049</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
       <option name="project" value="LOCAL" />
-      <updated>1591723574384</updated>
+      <updated>1591909642049</updated>
     </task>
-    <task id="LOCAL-00016" summary="Added dummy telebot">
-      <created>1591723941419</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
+    <task id="LOCAL-00048" summary="Testing buttons">
+      <created>1591909957594</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
       <option name="project" value="LOCAL" />
-      <updated>1591723941419</updated>
+      <updated>1591909957594</updated>
     </task>
-    <task id="LOCAL-00017" summary="Added dummy telebot">
-      <created>1591725388324</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
+    <task id="LOCAL-00049" summary="Testing buttons">
+      <created>1591910433989</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
       <option name="project" value="LOCAL" />
-      <updated>1591725388324</updated>
+      <updated>1591910433989</updated>
     </task>
-    <task id="LOCAL-00018" summary="Added dummy telebot">
-      <created>1591725458316</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
+    <task id="LOCAL-00050" summary="Testing buttons">
+      <created>1591910611535</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
       <option name="project" value="LOCAL" />
-      <updated>1591725458316</updated>
+      <updated>1591910611536</updated>
     </task>
-    <task id="LOCAL-00019" summary="Added dummy telebot">
-      <created>1591726264519</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
+    <task id="LOCAL-00051" summary="Testing buttons">
+      <created>1591910665991</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
       <option name="project" value="LOCAL" />
-      <updated>1591726264519</updated>
+      <updated>1591910665991</updated>
     </task>
-    <task id="LOCAL-00020" summary="Added dummy telebot">
-      <created>1591726476516</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
+    <task id="LOCAL-00052" summary="Testing buttons">
+      <created>1591910761398</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
       <option name="project" value="LOCAL" />
-      <updated>1591726476516</updated>
+      <updated>1591910761398</updated>
     </task>
-    <task id="LOCAL-00021" summary="Added balance overview to tele client">
-      <created>1591728562728</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
+    <task id="LOCAL-00053" summary="Testing buttons">
+      <created>1591910853950</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
       <option name="project" value="LOCAL" />
-      <updated>1591728562728</updated>
+      <updated>1591910853950</updated>
     </task>
-    <task id="LOCAL-00022" summary="Added balance overview to tele client">
-      <created>1591728633917</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
+    <task id="LOCAL-00054" summary="Testing buttons">
+      <created>1591910964820</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
       <option name="project" value="LOCAL" />
-      <updated>1591728633917</updated>
+      <updated>1591910964820</updated>
     </task>
-    <task id="LOCAL-00023" summary="Added balance overview to tele client">
-      <created>1591728777845</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
+    <task id="LOCAL-00055" summary="Testing buttons">
+      <created>1591911081629</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
       <option name="project" value="LOCAL" />
-      <updated>1591728777845</updated>
+      <updated>1591911081629</updated>
     </task>
-    <task id="LOCAL-00024" summary="Testing force reply">
-      <created>1591902395922</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
+    <task id="LOCAL-00056" summary="Testing buttons">
+      <created>1591911179945</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
       <option name="project" value="LOCAL" />
-      <updated>1591902395922</updated>
+      <updated>1591911179945</updated>
     </task>
-    <task id="LOCAL-00025" summary="Testing force reply">
-      <created>1591902531106</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
+    <task id="LOCAL-00057" summary="Testing buttons">
+      <created>1591911421801</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
       <option name="project" value="LOCAL" />
-      <updated>1591902531106</updated>
+      <updated>1591911421801</updated>
     </task>
-    <task id="LOCAL-00026" summary="Testing force reply">
-      <created>1591902884352</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
+    <task id="LOCAL-00058" summary="Testing buttons">
+      <created>1591911489282</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
       <option name="project" value="LOCAL" />
-      <updated>1591902884352</updated>
+      <updated>1591911489282</updated>
     </task>
-    <task id="LOCAL-00027" summary="Testing force reply">
-      <created>1591902913174</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
+    <task id="LOCAL-00059" summary="Added balance overview to tele client">
+      <created>1591952999726</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
       <option name="project" value="LOCAL" />
-      <updated>1591902913174</updated>
+      <updated>1591952999727</updated>
     </task>
-    <task id="LOCAL-00028" summary="Testing force reply">
-      <created>1591903926605</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
+    <task id="LOCAL-00060" summary="Added balance overview to tele client">
+      <created>1591953123346</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
       <option name="project" value="LOCAL" />
-      <updated>1591903926605</updated>
+      <updated>1591953123346</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00061" summary="Added balance overview to tele client">
+      <created>1591953259696</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1591953259696</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Added balance overview to tele client">
+      <created>1591953501287</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1591953501287</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Added balance overview to tele client">
+      <created>1591953589458</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1591953589458</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Added balance overview to tele client">
+      <created>1591953745781</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1591953745781</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Added balance overview to tele client">
+      <created>1591953825426</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1591953825426</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Added balance overview to tele client">
+      <created>1591953879401</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1591953879401</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Added balance overview to tele client">
+      <created>1591953934546</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1591953934546</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Added balance overview to tele client">
+      <created>1591953989797</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1591953989797</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Added balance overview to tele client">
+      <created>1591954049040</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1591954049040</updated>
+    </task>
+    <task id="LOCAL-00070" summary="Added balance overview to tele client">
+      <created>1591955559014</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1591955559014</updated>
+    </task>
+    <task id="LOCAL-00071" summary="Added balance overview to tele client">
+      <created>1591955648707</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1591955648707</updated>
+    </task>
+    <task id="LOCAL-00072" summary="Added balance overview to tele client">
+      <created>1591955664424</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1591955664424</updated>
+    </task>
+    <task id="LOCAL-00073" summary="Added balance overview to tele client">
+      <created>1591956564133</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1591956564133</updated>
+    </task>
+    <task id="LOCAL-00074" summary="Added balance overview to tele client">
+      <created>1591956732038</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1591956732038</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Made a pile of shit by switching from user_id to username">
+      <created>1591967574382</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1591967574382</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Made a pile of shit by switching from user_id to username">
+      <created>1591967760349</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1591967760349</updated>
+    </task>
+    <task id="LOCAL-00077" summary="Made a pile of shit by switching from user_id to username">
+      <created>1591968016235</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1591968016235</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Made a pile of shit by switching from user_id to username">
+      <created>1591968350929</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1591968350929</updated>
+    </task>
+    <task id="LOCAL-00079" summary="Made a pile of shit by switching from user_id to username">
+      <created>1591968625604</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1591968625604</updated>
+    </task>
+    <task id="LOCAL-00080" summary="added user linkage to telegram">
+      <created>1591970162328</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1591970162328</updated>
+    </task>
+    <task id="LOCAL-00081" summary="added user linkage to telegram">
+      <created>1591970302416</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1591970302416</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -408,9 +555,12 @@
     <MESSAGE value="Corrected 'Write user'" />
     <MESSAGE value="Added ConnectionResetError management" />
     <MESSAGE value="Added dummy telebot" />
-    <MESSAGE value="Added balance overview to tele client" />
     <MESSAGE value="Testing force reply" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testing force reply" />
+    <MESSAGE value="Testing buttons" />
+    <MESSAGE value="Added balance overview to tele client" />
+    <MESSAGE value="Made a pile of shit by switching from user_id to username" />
+    <MESSAGE value="added user linkage to telegram" />
+    <option name="LAST_COMMIT_MESSAGE" value="added user linkage to telegram" />
   </component>
   <component name="WindowStateProjectService">
     <state x="587" y="88" key="CommitChangelistDialog2" timestamp="1591537811854">
@@ -433,9 +583,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591723247817" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1591903928048">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1591970303535">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1591903928048" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1591970303535" />
   </component>
 </project>
