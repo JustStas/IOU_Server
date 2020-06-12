@@ -47,6 +47,8 @@ def process_data(input):
         output = check_trx(data)
     if command == 'check_username_availability':
         output = check_username_availability(data)
+    if command =='link_telegram_id':
+        link_telegram_id(data)
 
     if command == 'reset_databases':
         reset_databases()
@@ -182,3 +184,10 @@ def check_username_availability(test_username):
         return False
     else:
         return True
+
+
+def link_telegram_id(user_and_telegram):
+    username = user_and_telegram[0]
+    telegram_id = user_and_telegram[1]
+    users = list_users(full_info=True)
+    users.loc[users['username'] == username, 'telegram_id'] = telegram_id

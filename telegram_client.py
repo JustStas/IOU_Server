@@ -13,7 +13,7 @@ print('Bot started')
 
 
 @bot.message_handler(commands=['balance_overview'])
-def balance(message):
+def balance_start(message):
     markup = types.ForceReply(selective=False)
     user_ids = bot.send_message(message.chat.id, 'Who do you want the overview for?', reply_markup=markup)
     bot.register_for_reply(user_ids, balance_overview)
@@ -95,7 +95,7 @@ def balance_overview(message):
 
 
 @bot.message_handler(commands=['load_user'])
-def balance(message):
+def user_load_start(message):
     user_ids = bot.send_message(message.chat.id, 'Who do you want to load?', reply_markup=keyboard_with_users())
     bot.register_next_step_handler(user_ids, load_user)
 
@@ -104,6 +104,19 @@ def load_user(message):
     user = User(username=message.text)
     user.load()
     bot.reply_to(message, user.description, reply_markup=types.ReplyKeyboardRemove())
+
+
+@bot.message_handler(commands=['link_my_telegram'])
+def telegram_link_start(message):
+    user_ids = bot.send_message(message.chat.id, 'Who are you?', reply_markup=keyboard_with_users())
+    bot.register_next_step_handler(user_ids, link_telegram)
+
+
+def link_telegram(message):
+    username = message.text
+    telegram_id = message.from_user.id
+    server_conn('link_telegram_id', [username, telegram_id])
+
 
 
 def keyboard_with_users(group=None):
