@@ -114,7 +114,7 @@ def test(message):
     for ent in message.entities:
         if ent.type == 'text_mention':
             print(ent)
-            print(ent['user']['id'])
+            print(ent.user.id)
     user_ids = bot.send_message(message.chat.id, 'HI')
 
 
