@@ -101,7 +101,7 @@ def balance(message):
 
 
 def load_user(message):
-    user = User(user_id=int(message.text))
+    user = User(username=message.text)
     user.load()
     bot.reply_to(message, user.description, reply_markup=types.ReplyKeyboardRemove())
 

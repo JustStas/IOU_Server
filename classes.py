@@ -160,5 +160,8 @@ class User:
             to_print += ('\nID:' + str(self.user_id))
             to_print += ('\nFirst name:' + str(self.f_name))
             to_print += ('\nLast name:' + str(self.l_name))
+            to_print += ('\nUsername:' + str(self.username))
+            to_print += ('\nTelegram_ID:' + str(self.telegram_id))
+
         print(to_print)
         return to_print

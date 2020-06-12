@@ -133,9 +133,11 @@ def check_user(username):
     users = list_users(full_info=True)
     try:
         user_line = users.loc[users['username'] == username].iloc[0]
+        user_id = user_line['user_id']
         f_name = user_line['f_name']
         l_name = user_line['l_name']
-        user_credentials = {'f_name': f_name, 'l_name': l_name}
+        telegram_id = user_line['telegram_id']
+        user_credentials = {'user_id': user_id, 'f_name': f_name, 'l_name': l_name, 'telegram_id': telegram_id}
     except IndexError:
         user_credentials = None
     return user_credentials
