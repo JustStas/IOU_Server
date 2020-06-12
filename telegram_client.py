@@ -112,7 +112,7 @@ def load_user(message):
 @bot.message_handler(content_types=['text'])
 def test(message):
     print(message.entities)
-    user_ids = bot.send_message(message.chat.id, 'HI', reply_markup=markup)
+    user_ids = bot.send_message(message.chat.id, 'HI')
 
 
 while True:
