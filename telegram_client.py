@@ -111,7 +111,8 @@ def load_user(message):
 
 @bot.message_handler(content_types=['text'])
 def test(message):
-    print(message.entities)
+    print(message.entities[0].type)
+    print(message.entities[1].type)
     for ent in message.entities:
         if ent.type == 'text_mention':
             print(ent.user.id)
