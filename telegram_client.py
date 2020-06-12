@@ -111,7 +111,8 @@ def load_user(message):
 
 @bot.message_handler(content_types=['text'])
 def test(message):
-    print(message.entities)
+    print(message.entities[0])
+    print(message.entities[0].type)
     user_ids = bot.send_message(message.chat.id, 'HI')
 
 
