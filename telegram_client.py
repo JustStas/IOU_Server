@@ -126,9 +126,16 @@ def telegram_link_start(message):
 
 
 def define_creditor(message):
-    dic = {'amount': message.text, 'debtors': []}
-    user_ids = bot.send_message(message.chat.id, 'Who is the creditor?', reply_markup=keyboard_with_users())
-    bot.register_next_step_handler(user_ids, lambda msg: define_split_type(dic, msg))
+    try:
+        float(message.text)
+        dic = {'amount': message.text, 'debtors': []}
+        user_ids = bot.send_message(message.chat.id, 'Who is the creditor?', reply_markup=keyboard_with_users())
+        bot.register_next_step_handler(user_ids, lambda msg: define_split_type(dic, msg))
+    except Exception:
+        trx_vol = bot.send_message(message.chat.id, 'That is not a valid sum. Please enter a correct one.',
+                                   reply_markup=types.ForceReply(selective=False))
+        bot.register_next_step_handler(trx_vol, define_creditor)
+
 
 
 def define_split_type(dic, message):
