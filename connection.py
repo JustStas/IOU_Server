@@ -4,13 +4,14 @@ from core import process_data
 from paths import server_port, server_ip
 
 print('Starting server')
+serv_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM, proto=0)
+serv_sock.bind((server_ip, server_port))  # IP, port
+serv_sock.listen(10)
 
 
 while True:
     # serv_sock = socket.socket(socket.AF_INET, socket.SO_REUSEADDR, proto=0)
-    serv_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM, proto=0)
-    serv_sock.bind((server_ip, server_port))  # IP, port
-    serv_sock.listen(10)
+
     # Continuous work on inbound connections
     try: client_sock, client_addr = serv_sock.accept()
     except socket.error:
