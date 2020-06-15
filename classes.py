@@ -79,8 +79,9 @@ class IOU:
         self.currency = currency
         self.iou_amount = iou_amount
         self.date = date
-
+        print('allocating')
         self.iou_id = server_conn('allocate_iou_id')
+        print('allocated')
 
     def save(self):
         server_conn('update_iou', {'trx_id': self.trx_id, 'IOU_id': self.iou_id, 'creditor_id': self.creditor_id,
