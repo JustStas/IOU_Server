@@ -142,6 +142,7 @@ def define_split_type(dic, message):
 
 
 def process_transaction_split(dic, message):
+    print('dic', dic)
     dic['split_type'] = message
     if dic['split_type'].text == 'Equal split':
 

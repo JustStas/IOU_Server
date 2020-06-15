@@ -176,20 +176,6 @@
       <option name="presentableId" value="Default" />
       <updated>1590247308094</updated>
     </task>
-    <task id="LOCAL-00039" summary="Testing force reply">
-      <created>1591906321490</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1591906321490</updated>
-    </task>
-    <task id="LOCAL-00040" summary="Testing force reply">
-      <created>1591906373013</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1591906373013</updated>
-    </task>
     <task id="LOCAL-00041" summary="Testing buttons">
       <created>1591908746623</created>
       <option name="number" value="00041" />
@@ -519,7 +505,21 @@
       <option name="project" value="LOCAL" />
       <updated>1592250297509</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="Added trx creation and equal splitting">
+      <created>1592250514759</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1592250514759</updated>
+    </task>
+    <task id="LOCAL-00089" summary="Added trx creation and equal splitting">
+      <created>1592250591133</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1592250591133</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -582,9 +582,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591723247817" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1592250298770">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1592250592177">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1592250298770" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1592250592177" />
   </component>
 </project>
