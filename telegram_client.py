@@ -165,6 +165,7 @@ def add_member_to_split(dic, message):
                                                                                      dic['amount'],
                                                                                      dic['debtors']))
     else:
+        print('DIC', dic['debtors'])
         dic['debtors'] = dic['debtors'].append(message.text)
         print('DIC', dic['debtors'])
         process_transaction_split(dic, dic['split_type'])
