@@ -31,8 +31,9 @@ while True:
             # print(output)
             output_pickled = pickle.dumps(output)
             client_sock.sendall(pickle.dumps(output))
-            print('Sent response')
             serv_sock.close()
+            print('Sent response')
+
         except ConnectionResetError:
             print(ConnectionResetError)
 
