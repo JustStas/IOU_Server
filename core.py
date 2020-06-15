@@ -215,4 +215,5 @@ def new_trx_with_equal_split(data):
     print(creditor_id)
     print(trx_value)
     trx = Trx(creditor_id=creditor_id, full_amount=trx_value, trx_name='This is the one')
+    print('SPLITTING')
     trx.equal_split(debtors_ids)
