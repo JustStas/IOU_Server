@@ -144,10 +144,8 @@ def define_split_type(dic, message):
 def process_transaction_split(dic, message):
     dic['split_type'] = message
     if dic['split_type'].text == 'Equal split':
-        if len(dic['debtors']) == 0:
-            keyboard = keyboard_with_users()
-        else:
-            keyboard = keyboard_with_users(exclude_users=dic['debtors'])
+
+        keyboard = keyboard_with_users(exclude_users=dic['debtors'], add_nobody=True)
         split_member = bot.send_message(message.chat.id,
                                         'Who would you like to include? Select "Nobody" to end allocation',
                                         reply_markup=keyboard)  # Todo Will need to replace "Nobody" with some shit otherwise such a username will break everything
@@ -166,7 +164,7 @@ def add_member_to_split(dic, message):
                                                                                      dic['debtors']))
     else:
         dic['debtors'] = dic['debtors'].append(message.text)
-        process_transaction_split(dic, dic['debtors'].text)
+        process_transaction_split(dic, dic['split_type'])
 
 
 def keyboard_with_users(group=None, exclude_users=-1, add_nobody=False):
