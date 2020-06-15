@@ -168,6 +168,7 @@ def add_member_to_split(dic, message):
 
 
 def keyboard_with_users(group=None, exclude_users=-1, add_nobody=False):
+    print('Excl', exclude_users)
     keyboard = types.ReplyKeyboardMarkup()
     usernames = list_users()
     for username in usernames:
