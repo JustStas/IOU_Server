@@ -154,6 +154,7 @@ def process_transaction_split(dic, message):
 
 
 def add_member_to_split(dic, message):
+    print(message)
     if message.text == 'Nobody':
         server_conn('new_trx_with_equal_split', {'amount': dic['amount'],
                                                  'creditor': dic['creditor'],
