@@ -34,8 +34,11 @@ while True:
             client_sock.sendall(pickle.dumps(output))
             client_sock.close()
             print('Sent response')
+            break
 
         except ConnectionResetError:
             print(ConnectionResetError)
-
-    client_sock.close()
+    try:
+        client_sock.close()
+    except Exception:
+        pass
