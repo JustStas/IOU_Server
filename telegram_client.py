@@ -127,7 +127,7 @@ def telegram_link_start(message):
 
 def define_creditor(message):
     dic = {'amount': message.text, 'debtors': []}
-    user_ids = bot.send_message(message.chat.id, 'Who is the creditor?', reply_markup=keyboard_with_users())
+    user_ids = bot.send_message(message.chat.id, 'Who is the creditor?', reply_markup=types.ForceReply(selective=False))
     bot.register_next_step_handler(user_ids, lambda msg: define_split_type(dic, msg))
 
 
@@ -159,7 +159,7 @@ def add_member_to_split(dic, message):
         server_conn('new_trx_with_equal_split', {'amount': dic['amount'],
                                                  'creditor': dic['creditor'],
                                                  'debtors': dic['debtors']})
-        
+
         bot.send_message(message.chat.id, '''{0}'s transaction of {1} has
                                              been equally split among {2}.'''.format(dic['creditor'],
                                                                                      dic['amount'],
