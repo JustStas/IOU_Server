@@ -33,7 +33,7 @@ class Trx:
             self.creditor_id = details['creditor_id']
             self.debtors_id = details['debtors_id']
             self.currency = details['currency']
-            self.amount = details['amount']
+            self.full_amount = details['amount']
             self.date = details['date']
 
         else:

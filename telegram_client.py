@@ -119,12 +119,66 @@ def link_telegram(message):
     bot.reply_to(message, 'Telegram linked to {}'.format(username), reply_markup=types.ReplyKeyboardRemove())
 
 
+@bot.message_handler(commands=['new_trx'])
+def telegram_link_start(message):
+    trx_vol = bot.send_message(message.chat.id, 'How big was the expense?', reply_markup=keyboard_with_users())
+    bot.register_next_step_handler(trx_vol, link_telegram)
 
-def keyboard_with_users(group=None):
+
+def define_creditor(message):
+    dic = {'amount': message.text, 'debtors': []}
+    user_ids = bot.send_message(message.chat.id, 'Who is the creditor?', reply_markup=keyboard_with_users())
+    bot.register_next_step_handler(user_ids, lambda msg: define_split_type(dic, msg))
+
+
+def define_split_type(dic, message):
+    dic['creditor'] = message.text
+    keyboard = types.ReplyKeyboardMarkup()
+    splits = ['Equal split']
+    for split in splits:
+        keyboard.add(types.InlineKeyboardButton(split, callback_data=split))
+    split_type = bot.send_message(message.chat.id, 'How would you like to split?', reply_markup=keyboard)
+    bot.register_next_step_handler(split_type, lambda msg: process_transaction_split(dic, msg))
+
+
+def process_transaction_split(dic, message):
+    dic['split_type'] = message
+    if dic['split_type'].text == 'Equal split':
+        if len(dic['debtors']) == 0:
+            keyboard = keyboard_with_users()
+        else:
+            keyboard = keyboard_with_users(exclude_users=dic['debtors'])
+        split_member = bot.send_message(message.chat.id,
+                                        'Who would you like to include? Select "Nobody" to end allocation',
+                                        reply_markup=keyboard)  # Todo Will need to replace "Nobody" with some shit otherwise such a username will break everything
+        bot.register_next_step_handler(split_member, lambda msg: add_member_to_split(dic, msg))
+
+
+def add_member_to_split(dic, message):
+    if message.text == 'Nobody':
+        server_conn('new_trx_with_equal_split', {'amount': dic['amount'],
+                                                 'creditor': dic['creditor'],
+                                                 'debtors': dic['debtors']})
+        
+        bot.send_message(message.chat.id, '''{0}'s transaction of {1} has
+                                             been equally split among {2}.'''.format(dic['creditor'],
+                                                                                     dic['amount'],
+                                                                                     dic['debtors']))
+    else:
+        dic['debtors'] = dic['debtors'].append(message.text)
+        process_transaction_split(dic, dic['debtors'].text)
+
+
+def keyboard_with_users(group=None, exclude_users=-1, add_nobody=False):
     keyboard = types.ReplyKeyboardMarkup()
     usernames = list_users()
     for username in usernames:
-        keyboard.add(types.InlineKeyboardButton(username, callback_data=username))
+        if exclude_users != -1 and username in exclude_users:
+            pass
+        else:
+            keyboard.add(types.InlineKeyboardButton(username, callback_data=username))
+    if add_nobody:
+        keyboard.add(types.InlineKeyboardButton('Nobody', callback_data='Nobody'))
     return keyboard
 
 

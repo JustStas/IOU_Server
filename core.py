@@ -1,6 +1,7 @@
 import pandas as pd
 from paths import trx_log_path, iou_log_path, users_db_path
 from admin_functions import reset_databases
+from classes import Trx
 
 
 def server_conn(command, data=None):
@@ -47,8 +48,10 @@ def process_data(input):
         output = check_trx(data)
     if command == 'check_username_availability':
         output = check_username_availability(data)
-    if command =='link_telegram_id':
+    if command == 'link_telegram_id':
         link_telegram_id(data)
+    if command == 'new_trx_with_equal_split':
+        new_trx_with_equal_split(data)
 
     if command == 'reset_databases':
         reset_databases()
@@ -192,3 +195,22 @@ def link_telegram_id(user_and_telegram):
     users = list_users(full_info=True)
     users.loc[users['username'] == username, 'telegram_id'] = telegram_id
     save_users(users)
+
+
+def get_id_from_username(username):
+    users = list_users(full_info=True)
+    my_user = users.loc[users['username'] == username].iloc[0]
+    return my_user['user_id']
+
+
+def new_trx_with_equal_split(data):
+    trx_value = data['amount']
+    creditor = data['creditor']
+    debtors = data['debtors']
+    creditor_id = get_id_from_username(creditor)
+    debtors_ids = []
+    for debtor in debtors:
+        debtors_ids.append(get_id_from_username(debtor))
+
+    trx = Trx(creditor_id=creditor_id, full_amount=trx_value)
+    trx.equal_split(debtors_ids)
