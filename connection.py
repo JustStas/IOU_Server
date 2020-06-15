@@ -7,7 +7,7 @@ print('Starting server')
 
 
 while True:
-    serv_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM, proto=0)
+    serv_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM, socket.SO_REUSEADDR, proto=0)
     serv_sock.bind((server_ip, server_port))  # IP, port
     serv_sock.listen(10)
     # Continuous work on inbound connections
