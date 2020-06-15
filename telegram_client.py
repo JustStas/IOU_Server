@@ -121,13 +121,13 @@ def link_telegram(message):
 
 @bot.message_handler(commands=['new_trx'])
 def telegram_link_start(message):
-    trx_vol = bot.send_message(message.chat.id, 'How big was the expense?', reply_markup=keyboard_with_users())
+    trx_vol = bot.send_message(message.chat.id, 'How big was the expense?', reply_markup=types.ForceReply(selective=False))
     bot.register_next_step_handler(trx_vol, define_creditor)
 
 
 def define_creditor(message):
     dic = {'amount': message.text, 'debtors': []}
-    user_ids = bot.send_message(message.chat.id, 'Who is the creditor?', reply_markup=types.ForceReply(selective=False))
+    user_ids = bot.send_message(message.chat.id, 'Who is the creditor?', reply_markup=keyboard_with_users())
     bot.register_next_step_handler(user_ids, lambda msg: define_split_type(dic, msg))
 
 
