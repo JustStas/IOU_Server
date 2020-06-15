@@ -1,7 +1,7 @@
 import pandas as pd
 from paths import trx_log_path, iou_log_path, users_db_path
 from admin_functions import reset_databases
-from classes import Trx
+
 
 
 def server_conn(command, data=None):
@@ -204,6 +204,7 @@ def get_id_from_username(username):
 
 
 def new_trx_with_equal_split(data):
+    from classes import Trx
     trx_value = data['amount']
     creditor = data['creditor']
     debtors = data['debtors']
