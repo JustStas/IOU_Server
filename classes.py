@@ -20,6 +20,7 @@ class Trx:
         self.currency = currency
         self.full_amount = full_amount
         self.date = date
+        self.save()
 
     def save(self):
         server_conn('update_trx', {'trx_id': self.trx_id, 'trx_name': self.trx_name, 'creditor_id': self.creditor_id,
@@ -60,6 +61,7 @@ class Trx:
                         iou_amount=share,
                         date=self.date)
             i_iou.save()
+        self.save()
 
 
 class IOU:
