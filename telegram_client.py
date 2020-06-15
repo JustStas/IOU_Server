@@ -168,12 +168,12 @@ def add_member_to_split(dic, message):
         process_transaction_split(dic, dic['split_type'])
 
 
-def keyboard_with_users(group=None, exclude_users=-1, add_nobody=False):
+def keyboard_with_users(group=None, exclude_users=[], add_nobody=False):
     print('Excl', exclude_users)
     keyboard = types.ReplyKeyboardMarkup()
     usernames = list_users()
     for username in usernames:
-        if exclude_users != -1 and username in exclude_users:
+        if len(exclude_users) > 0 and username in exclude_users:
             pass
         else:
             keyboard.add(types.InlineKeyboardButton(username, callback_data=username))
