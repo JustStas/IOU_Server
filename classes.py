@@ -47,6 +47,7 @@ class Trx:
         print('Volume:', self.full_amount, self.currency)
 
     def equal_split(self, debtors=-1):
+        print(debtors)
         if debtors == -1:
             print('Debtors None')
             self.debtors_id = [self.creditor_id]
