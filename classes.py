@@ -47,19 +47,13 @@ class Trx:
         print('Volume:', self.full_amount, self.currency)
 
     def equal_split(self, debtors=-1):
-        print('here', debtors)
-        print('amount', self.full_amount)
         if debtors == -1:
             print('Debtors None')
             self.debtors_id = [self.creditor_id]
         else:
             self.debtors_id = debtors
-        print('full am', self.full_amount)
-        print('debtors', self.debtors_id)
         share = self.full_amount / len(self.debtors_id)
-        print('heeereee2')
         for debtor in self.debtors_id:
-            print('new IOU')
             i_iou = IOU(trx_id=self.trx_id,
                         creditor_id=self.creditor_id,
                         debtor_id=debtor,
