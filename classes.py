@@ -54,6 +54,7 @@ class Trx:
         else:
             self.debtors_id = debtors
         share = self.full_amount / len(self.debtors_id)
+        print('heeereee')
         for debtor in self.debtors_id:
             print('new IOU')
             i_iou = IOU(trx_id=self.trx_id,
