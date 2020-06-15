@@ -161,9 +161,8 @@ def add_member_to_split(dic, message):
                                                  'debtors': dic['debtors']})
 
         bot.send_message(message.chat.id, '''{0}'s transaction of {1} has
-                                             been equally split among {2}.'''.format(dic['creditor'],
-                                                                                     dic['amount'],
-                                                                                     dic['debtors']))
+        been equally split among {2}.'''.format(dic['creditor'], dic['amount'], dic['debtors']),
+                         reply_markup=types.ReplyKeyboardRemove())
     else:
         print('DIC', dic['debtors'])
         print('TEXT', message.text)
