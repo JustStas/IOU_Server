@@ -55,6 +55,7 @@ class Trx:
         else:
             self.debtors_id = debtors
         print('heeereee')
+        print('debtors', self.debtors_id)
         share = self.full_amount / len(self.debtors_id)
         print('heeereee2')
         for debtor in self.debtors_id:
