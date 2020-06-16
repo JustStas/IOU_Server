@@ -35,6 +35,7 @@ def balance_overview(message): #todo update with a keyboard & usernames
         users = counterpart_usernames
 
     for username in users:
+        print('user', username)
         to_print += '\n'
         to_print += ('=' * 50)
         user1 = User(username=username)
