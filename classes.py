@@ -90,12 +90,12 @@ class IOU:
 
 class User:
     def __init__(self,
-                 username=-1,
+                 user_id=-1,
                  f_name=None,
                  l_name=None,
                  username='',
                  telegram_id=-1):
-        self.user_id = username
+        self.user_id = user_id
         self.f_name = f_name
         self.l_name = l_name
         self.username = username
