@@ -25,6 +25,7 @@ def balance_overview(message): #todo update with a keyboard & usernames
         users = -1
     else:
         users = message.text
+        print('users', users)
 
     to_print = ''
 
