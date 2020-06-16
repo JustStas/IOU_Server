@@ -19,53 +19,24 @@ def balance_start(message):
     bot.register_for_reply(user_ids, balance_overview)
 
 
-def balance_overview(message):
+def balance_overview(message): #todo update with a keyboard & usernames
+
     if message.text == '':
-        user_ids = -1
+        users = -1
     else:
-        user_ids = message.text
+        users = message.text
 
     to_print = ''
 
-    try:
-        user_ids = int(user_ids)
-    except ValueError:
-        pass
-
-    if user_ids == -1:
-        user_ids = []
-    elif isinstance(user_ids, list):
-        pass
-    elif isinstance(user_ids, int):
-        user_ids = [user_ids]
-    elif isinstance(user_ids, str):
-        try:
-            user_ids = str_to_list(user_ids)
-            for i in user_ids:
-                if not isinstance(i, int):
-                    to_print += '\nWrong input'
-                    bot.reply_to(message, to_print)
-                    return
-        except Exception:
-            to_print += '\nWrong input'
-            bot.reply_to(message, to_print)
-            return
-    else:
-        to_print += '\nWrong input'
-        bot.reply_to(message, to_print)
-        return
-    print('I AM HERE2', message.text)
     users = server_conn('list_users')
-    print('I AM HERE3', message.text)
-    counterpart_ids = users.to_list()
-    if not user_ids:
-        user_ids = counterpart_ids
+    counterpart_usernames = users.to_list()
+    if users == -1:
+        users = counterpart_usernames
 
-    for user_id in user_ids:
-        print('I AM HERE4', message.text)
+    for username in users:
         to_print += '\n'
         to_print += ('=' * 50)
-        user1 = User(user_id=user_id)
+        user1 = User(username=username)
         user1.load()
         to_print += '\n'
         to_print += user1.f_name
@@ -75,10 +46,10 @@ def balance_overview(message):
         to_print += '\n'
         to_print += ('Accumulated receivables: {0} RUB'.format(user1_balance[1]))
 
-        remaining_users = [i for i in counterpart_ids if i != user1.user_id]
+        remaining_users = [i for i in counterpart_usernames if i != user1.user_id]
 
         for counterpart_id in remaining_users:
-            user2 = User(user_id=counterpart_id)
+            user2 = User(username=counterpart_id)
             counterpart_balance = user1.balance(counterpart_id=user2.user_id)
             debt_to_counterpart = counterpart_balance[0]
             receivables_from_counterpart = counterpart_balance[1]
@@ -168,7 +139,7 @@ def add_member_to_split(dic, message):
                                                  'debtors': dic['debtors']})
 
         bot.send_message(message.chat.id, '''{0}'s transaction of {1} has been equally split among {2}.'''.format(
-            dic['creditor'], dic['amount'], dic['debtors']),
+            dic['creditor'], dic['amount'], dic['debtors']), #todo make it so there are no [] in the output text
                          reply_markup=types.ReplyKeyboardRemove())
     else:
         print('DIC', dic['debtors'])
@@ -178,7 +149,7 @@ def add_member_to_split(dic, message):
         process_transaction_split(dic, dic['split_type'])
 
 
-def keyboard_with_users(group=None, exclude_users=[], add_nobody=False):
+def keyboard_with_users(group=None, exclude_users=[], add_nobody=False): #todo add option to add a transaction name
     print('Excl', exclude_users)
     keyboard = types.ReplyKeyboardMarkup()
     usernames = list_users()
