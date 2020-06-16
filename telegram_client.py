@@ -24,12 +24,13 @@ def balance_overview(message): #todo update with a keyboard & usernames
     if message.text == '':
         users = -1
     else:
-        users = message.text
+        users = [message.text]
         print('users', users)
+
 
     to_print = ''
 
-    counterparts = [server_conn('list_users')]
+    counterparts = server_conn('list_users')
     counterpart_usernames = counterparts
     if users == -1:
         users = counterpart_usernames
