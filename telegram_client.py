@@ -28,8 +28,8 @@ def balance_overview(message): #todo update with a keyboard & usernames
 
     to_print = ''
 
-    users = server_conn('list_users')
-    counterpart_usernames = users.to_list()
+    counterparts = server_conn('list_users')
+    counterpart_usernames = counterparts.to_list()
     if users == -1:
         users = counterpart_usernames
 
