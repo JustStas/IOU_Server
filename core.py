@@ -3,7 +3,6 @@ from paths import trx_log_path, iou_log_path, users_db_path
 from admin_functions import reset_databases
 
 
-
 def server_conn(command, data=None):
     data_source = [command, data]
     data_output = None
@@ -21,7 +20,7 @@ def process_data(input):
     print('Command: ', command)
     data = input[1]
     if command == 'list_users':
-        output = list_users()
+        output = list_users(data)
     if command == 'save_users':
         save_users(data)
     if command == 'list_ious':
@@ -61,7 +60,7 @@ def process_data(input):
 
 def list_users(full_info=False):
     users = pd.read_hdf(users_db_path, key='df')
-    if not full_info:
+    if full_info == '' or full_info == False:
         users = users['username']
     return users
 
