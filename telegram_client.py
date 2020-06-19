@@ -127,7 +127,7 @@ def get_l_name(dic, message):
     dic['f_name'] = message.text
     l_name = bot.send_message(message.chat.id, 'What is your last name?',
                               reply_markup=types.ForceReply(selective=False))
-    bot.register_next_step_handler(l_name, lambda msg: get_l_name(dic, msg))
+    bot.register_next_step_handler(l_name, lambda msg: finish_user_creation(dic, msg))
     pass
 
 
