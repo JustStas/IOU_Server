@@ -114,6 +114,9 @@ class User:
 
         self.description = self.describe(short=False)
 
+    def allocate_user_id(self):
+        self.user_id = max(server_conn('list_users')) + 1
+
     def create_new_user(self):
         y_n = None
         while y_n not in ['y', 'Y', 'n', 'N']:
@@ -138,7 +141,11 @@ class User:
 
 
     def write(self):
-        user = {'user_id': self.user_id, 'f_name': self.f_name, 'l_name': self.l_name}
+        user = {'user_id': self.user_id,
+                'f_name': self.f_name,
+                'l_name': self.l_name,
+                'username': self.username,
+                'telegram_id': self.telegram_id}
         self.user_id = server_conn('write_user', user)
 
     def balance(self,

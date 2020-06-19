@@ -15,18 +15,18 @@ print('Bot started')
 @bot.message_handler(commands=['balance_overview'])
 def balance_start(message):
     markup = types.ForceReply(selective=False)
-    user_ids = bot.send_message(message.chat.id, 'Who do you want the overview for?', reply_markup=markup)
+    user_ids = bot.send_message(message.chat.id, 'Who do you want the overview for?',
+                                reply_markup=keyboard_with_users())
     bot.register_for_reply(user_ids, balance_overview)
 
 
-def balance_overview(message): #todo update with a keyboard & usernames
+def balance_overview(message):  # todo update with a keyboard & usernames
 
     if message.text == '':
         users = -1
     else:
         users = [message.text]
         print('users', users)
-
 
     to_print = ''
 
@@ -65,7 +65,7 @@ def balance_overview(message): #todo update with a keyboard & usernames
                 to_print += ('Debt to {0}: {1} RUB:'.format(user2.f_name, debt_to_counterpart))
                 to_print += '\n'
                 to_print += ('Receivables from {0}: {1} RUB'.format(user2.f_name, receivables_from_counterpart))
-    bot.reply_to(message, to_print)
+    bot.send_message(message.chat.id, to_print, reply_markup=types.ReplyKeyboardRemove())
 
 
 @bot.message_handler(commands=['load_user'])
@@ -82,20 +82,65 @@ def load_user(message):
 
 @bot.message_handler(commands=['link_my_telegram'])
 def telegram_link_start(message):
-    user_ids = bot.send_message(message.chat.id, 'Who are you?', reply_markup=keyboard_with_users())
+    keyboard = keyboard_with_users()
+    keyboard.add(
+        types.InlineKeyboardButton('New user', callback_data='New'))  # todo: need to replace new with some shit
+    user_ids = bot.send_message(message.chat.id, 'Who are you?', reply_markup=keyboard)
     bot.register_next_step_handler(user_ids, link_telegram)
 
 
 def link_telegram(message):
     username = message.text
+    if username == 'New':
+        create_new_user(message)
     telegram_id = message.from_user.id
     server_conn('link_telegram_id', [username, telegram_id])
     bot.reply_to(message, 'Telegram linked to {}'.format(username), reply_markup=types.ReplyKeyboardRemove())
 
 
+@bot.message_handler(commands=['create_new_user'])
+def create_new_user(message, first_try=True):
+    if first_try:
+        request = 'Please enter a username'
+    else:
+        request = 'Username is taken or not valid. Please try another'
+    username = bot.send_message(message.chat.id, request, reply_markup=types.ForceReply(selective=False))
+    bot.register_next_step_handler(username, check_username)
+
+
+def check_username(message):
+    username = message.text
+    if server_conn('check_user', username) is None:
+        get_f_name(message)
+    else:
+        create_new_user(message, first_try=False)
+
+
+def get_f_name(message):
+    dic = {'username': message.text}
+    f_name = bot.send_message(message.chat.id, 'What is your first name?',
+                              reply_markup=types.ForceReply(selective=False))
+    bot.register_next_step_handler(f_name, lambda msg: get_l_name(dic, msg))
+
+
+def get_l_name(dic, message):
+    dic['f_name'] = message.text
+    l_name = bot.send_message(message.chat.id, 'What is your last name?',
+                              reply_markup=types.ForceReply(selective=False))
+    bot.register_next_step_handler(l_name, lambda msg: get_l_name(dic, msg))
+    pass
+
+
+def finish_user_creation(dic, message):
+    dic['l_name'] = message.text
+    user = User(username=dic['username'], f_name=dic['f_name'], l_name=dic['l_name'], telegram_id=message.from_user.id)
+    user.allocate_user_id()
+
+
 @bot.message_handler(commands=['new_trx'])
 def telegram_link_start(message):
-    trx_vol = bot.send_message(message.chat.id, 'How big was the expense?', reply_markup=types.ForceReply(selective=False))
+    trx_vol = bot.send_message(message.chat.id, 'How big was the expense?',
+                               reply_markup=types.ForceReply(selective=False))
     bot.register_next_step_handler(trx_vol, define_creditor)
 
 
@@ -109,7 +154,6 @@ def define_creditor(message):
         trx_vol = bot.send_message(message.chat.id, 'That is not a valid sum. Please enter a correct one.',
                                    reply_markup=types.ForceReply(selective=False))
         bot.register_next_step_handler(trx_vol, define_creditor)
-
 
 
 def define_split_type(dic, message):
@@ -126,7 +170,6 @@ def process_transaction_split(dic, message):
     print('dic', dic)
     dic['split_type'] = message
     if dic['split_type'].text == 'Equal split':
-
         keyboard = keyboard_with_users(exclude_users=dic['debtors'], add_nobody=True)
         split_member = bot.send_message(message.chat.id,
                                         'Who would you like to include? Select "Nobody" to end allocation',
@@ -142,7 +185,7 @@ def add_member_to_split(dic, message):
                                                  'debtors': dic['debtors']})
 
         bot.send_message(message.chat.id, '''{0}'s transaction of {1} has been equally split among {2}.'''.format(
-            dic['creditor'], dic['amount'], dic['debtors']), #todo make it so there are no [] in the output text
+            dic['creditor'], dic['amount'], ', '.join(dic['debtors'])),
                          reply_markup=types.ReplyKeyboardRemove())
     else:
         print('DIC', dic['debtors'])
@@ -152,7 +195,7 @@ def add_member_to_split(dic, message):
         process_transaction_split(dic, dic['split_type'])
 
 
-def keyboard_with_users(group=None, exclude_users=[], add_nobody=False): #todo add option to add a transaction name
+def keyboard_with_users(group=None, exclude_users=[], add_nobody=False):  # todo add option to add a transaction name
     print('Excl', exclude_users)
     keyboard = types.ReplyKeyboardMarkup()
     usernames = list_users()

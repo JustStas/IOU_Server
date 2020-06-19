@@ -152,16 +152,30 @@ def write_user(user):
     user_id = user['user_id']
     f_name = user['f_name']
     l_name = user['l_name']
+    username = user['username']
+    telegram_id = user['telegram_id']
     users = list_users(full_info=True)
     if user_id != -1:
         if user_id in users['user_id']:
-            users.loc[users['user_id'] == user_id] = {'user_id': user_id, 'f_name': f_name, 'l_name': l_name}
+            users.loc[users['user_id'] == user_id] = {'user_id': user_id,
+                                                      'f_name': f_name,
+                                                      'l_name': l_name,
+                                                      'username': username,
+                                                      'telegram_id': telegram_id}
         else:
-            row = pd.Series({'user_id': user_id, 'f_name': f_name, 'l_name': l_name})
+            row = pd.Series({'user_id': user_id,
+                             'f_name': f_name,
+                             'l_name': l_name,
+                             'username': username,
+                             'telegram_id': telegram_id})
             users = users.append(row, ignore_index=True)
     else:
         user_id = users['user_id'].max() + 1
-        row = pd.Series({'user_id': user_id, 'f_name': f_name, 'l_name': l_name})
+        row = pd.Series({'user_id': user_id,
+                         'f_name': f_name,
+                         'l_name': l_name,
+                         'username': username,
+                         'telegram_id': telegram_id})
         users = users.append(row, ignore_index=True)
 
     save_users(users)
