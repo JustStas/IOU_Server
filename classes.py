@@ -114,8 +114,8 @@ class User:
 
         self.description = self.describe(short=False)
 
-    def allocate_user_id(self):
-        self.user_id = max(server_conn('list_users', True)['user_id']) + 1
+    # def allocate_user_id(self):
+    #     self.user_id = max(server_conn('list_users', True)['user_id']) + 1
 
     def create_new_user(self):
         y_n = None

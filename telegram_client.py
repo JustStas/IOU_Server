@@ -134,7 +134,7 @@ def get_l_name(dic, message):
 def finish_user_creation(dic, message):
     dic['l_name'] = message.text
     user = User(username=dic['username'], f_name=dic['f_name'], l_name=dic['l_name'], telegram_id=message.from_user.id)
-    user.allocate_user_id()
+    user.write()
 
 
 @bot.message_handler(commands=['new_trx'])
