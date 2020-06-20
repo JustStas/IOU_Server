@@ -20,6 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e37e72c-7286-4c37-8ef5-9f574f46aaba" name="Default Changelist" comment="added name for new trx in telegram">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/core.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paths.py" beforeDir="false" afterPath="$PROJECT_DIR$/paths.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/telegram_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/telegram_client.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -178,13 +183,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1590247308094</updated>
-    </task>
-    <task id="LOCAL-00096" summary="Added trx creation and equal splitting">
-      <created>1592251399088</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1592251399088</updated>
     </task>
     <task id="LOCAL-00097" summary="Added trx creation and equal splitting">
       <created>1592251510377</created>
@@ -522,7 +520,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592654750190</updated>
     </task>
-    <option name="localTasksCounter" value="145" />
+    <task id="LOCAL-00145" summary="added name for new trx in telegram">
+      <created>1592655531545</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1592655531545</updated>
+    </task>
+    <option name="localTasksCounter" value="146" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -595,9 +600,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1592654976589" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1592654751410">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1592655532836">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1592654751410" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1592655532836" />
   </component>
 </project>

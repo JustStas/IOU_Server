@@ -4,19 +4,20 @@ from core import server_conn
 
 class Trx:
     def __init__(self,
-                 creditor_id,
+                 creditor_id=-1,
                  trx_id=-1,
                  trx_name='Empty name',
                  currency='RUB',
                  full_amount=100.00,
-                 date=datetime.datetime.now()):
+                 date=datetime.datetime.now(),
+                 debtors_id=None):
         if trx_id == -1:
             self.trx_id = server_conn('allocate_trx_id')
         else:
             self.trx_id = trx_id
         self.trx_name = trx_name
         self.creditor_id = creditor_id
-        self.debtors_id = None
+        self.debtors_id = debtors_id
         self.currency = currency
         self.full_amount = full_amount
         self.date = date
@@ -109,15 +110,15 @@ class User:
             self.f_name = credentials['f_name']
             self.l_name = credentials['l_name']
             self.telegram_id = credentials['telegram_id']
-        else:
-            self.create_new_user()
+        # else:
+        #     self.create_new_user()
 
         self.description = self.describe(short=False)
 
     # def allocate_user_id(self):
     #     self.user_id = max(server_conn('list_users', True)['user_id']) + 1
 
-    def create_new_user(self):
+    def create_new_user(self):  # todo maybe remove from server side
         y_n = None
         while y_n not in ['y', 'Y', 'n', 'N']:
             y_n = input('No such user found. Create new user? (y/n) ')
@@ -138,7 +139,6 @@ class User:
             self.f_name = input('Enter user first name: ')
             self.l_name = input('Enter user last name: ')
             self.write()
-
 
     def write(self):
         user = {'user_id': self.user_id,
@@ -175,3 +175,14 @@ class User:
 
         print(to_print)
         return to_print
+
+
+class Group:
+    def __init__(self,
+                 group_id=-1,
+                 group_members=[],
+                 group_telegram_id=-1):
+        self.group_id = group_id
+        self.group_members = group_members
+        self.group_telegram_id = group_telegram_id
+        pass

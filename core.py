@@ -216,19 +216,23 @@ def get_id_from_username(username):
 
     return my_user['user_id']
 
+def get_username_from_id(user_id):
+    users = list_users(full_info=True)
+    my_user = users.loc[users['user_id'] == user_id].iloc[0]
 
-def new_trx_with_equal_split(data):
+    return my_user['username']
+
+
+def new_trx_with_equal_split(trx):
     from classes import Trx
-    trx_value = data['amount']
-    creditor = data['creditor']
-    debtors = data['debtors']
-    trx_name = data['trx_name']
-    creditor_id = get_id_from_username(creditor)
+    # trx_value = data['amount']
+    # creditor = data['creditor']
+    # debtors = data['debtors']
+    # trx_name = data['trx_name']
+    creditor_id = get_id_from_username(trx.creditor)
     debtors_ids = []
-    for debtor in debtors:
+    for debtor in trx.debtors:
         debtors_ids.append(get_id_from_username(debtor))
-    print(creditor_id)
-    print(trx_value)
     trx = Trx(creditor_id=creditor_id, full_amount=float(trx_value), trx_name=trx_name)
     print('SPLITTING')
     trx.equal_split(debtors_ids)
