@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action = 'http://127.0.0.1:5000/' method ='post'>
+        <h2> Load user by their penis </h2>
+        <img src="/static/dildo.png", width=100, height=100 />
+
+        <table>
+            <tr>
+                <th>Enter username</th>
+                <th><input type ='text', name="username"/></th>
+                <th><input type ='submit' value="Load user"/></th>
+            </tr>
+
+            <tr>
+                <th><br>First name: </th>
+                <th><br>
+                    {% if f_name != "" %}
+                    {{f_name}}
+                    {% else %}
+                    First name will be here
+                    {% endif %}
+                </th>
+            </tr>
+            <tr>
+                <th>Last name: </th>
+                <th>
+                    {% if l_name != "" %}
+                    {{l_name}}
+                    {% else %}
+                    Last name will be here
+                    {% endif %}
+                </th>
+            </tr>
+            <tr>
+                <th>Debt: </th>
+                <th>
+                    {% if debt != "" %}
+                    {{debt}}
+                    {% else %}
+                    debt will be here
+                    {% endif %}
+                </th>
+            </tr>
+            <tr>
+                <th>Receivables: </th>
+                <th>*output receivables wil be here*</th>
+            </tr>
+        </table>
+    </form>
+
+
+</body>
+</html>

@@ -1,7 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,PasswordField, SubmitField
+from wtforms import StringField, TextField, SubmitField
 
-class SignUpForm(FlaskForm):
-    username = StringField('Penis username')
-    password = PasswordField('Penis password')
-    submit = SubmitField('Scan your penis')
+class LoadUserForm(FlaskForm):
+    username = StringField('Enter username')
+#    submit = SubmitField()

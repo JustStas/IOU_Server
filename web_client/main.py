@@ -1,22 +1,21 @@
-import sys
-
-from flask import Flask, render_template
-
-from web_client import forms
+from flask import Flask, render_template, request
+from web_client.forms import LoadUserForm
+from wtforms import StringField, TextField
+from classes import User
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'my_penis'
 
-@app.route('/')
+@app.route('/', methods = ['POST', 'GET'])
 def home():
-    return render_template('penis.html', big_penis=False)
+    if request.method == 'POST':
+        username = request.form['username']
+        user = User(username=username)
+        # user.load()
+        return render_template('load_user.html', f_name=user.f_name)
 
-@app.route('/signup')
-def signup():
-    form = forms.SignUpForm()
-    return render_template('signup.html', form=form)
 
-
+    return render_template('load_user.html', f_name='')
 
 
 if __name__ == '__main__':
