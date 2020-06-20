@@ -164,7 +164,7 @@ def define_trx_name(dic, message):
 
 
 def define_split_type(dic, message):
-    dic['creditor'] = message.text
+    dic['trx_name'] = message.text
     keyboard = types.ReplyKeyboardMarkup()
     splits = ['Equal split']
     for split in splits:

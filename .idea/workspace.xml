@@ -19,7 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e37e72c-7286-4c37-8ef5-9f574f46aaba" name="Default Changelist" comment="added name for new trx in telegram" />
+    <list default="true" id="8e37e72c-7286-4c37-8ef5-9f574f46aaba" name="Default Changelist" comment="added name for new trx in telegram">
+      <change beforePath="$PROJECT_DIR$/telegram_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/telegram_client.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,6 +50,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../IOU_client" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager" selected="Python.telegram_client">
     <configuration name="connection" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -175,13 +178,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1590247308094</updated>
-    </task>
-    <task id="LOCAL-00095" summary="Added trx creation and equal splitting">
-      <created>1592251352181</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1592251352181</updated>
     </task>
     <task id="LOCAL-00096" summary="Added trx creation and equal splitting">
       <created>1592251399088</created>
@@ -519,7 +515,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592654618059</updated>
     </task>
-    <option name="localTasksCounter" value="144" />
+    <task id="LOCAL-00144" summary="added name for new trx in telegram">
+      <created>1592654750190</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1592654750190</updated>
+    </task>
+    <option name="localTasksCounter" value="145" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -588,9 +591,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591723247817" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1592654620345">
+    <state x="461" y="165" key="SettingsEditor" timestamp="1592654976589">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1592654620345" />
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1592654976589" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1592654751410">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1592654751410" />
   </component>
 </project>
