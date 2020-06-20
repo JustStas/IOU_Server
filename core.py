@@ -1,17 +1,23 @@
 import pandas as pd
-from paths import trx_log_path, iou_log_path, users_db_path
+import socket
+import client_connection
+from paths import trx_log_path, iou_log_path, users_db_path, server_ip
 from admin_functions import reset_databases
 
 
 def server_conn(command, data=None):
-    data_source = [command, data]
-    data_output = None
-    try:
-        data_output = process_data(data_source)
-    except Exception:
-        print(Exception)
-
-    return data_output
+    hostname = socket.gethostname()
+    machine_ip = socket.gethostbyname(hostname)
+    if machine_ip == server_ip:
+        data_source = [command, data]
+        data_output = None
+        try:
+            data_output = process_data(data_source)
+        except Exception:
+            print(Exception)
+        return data_output
+    else:
+        return client_connection.server_conn(command, data)
 
 
 def process_data(input):
@@ -202,7 +208,7 @@ def check_username_availability(test_username):
         return True
 
 
-def link_telegram_id(user_and_telegram):  #todo force to check if telegram id is already linked to another user
+def link_telegram_id(user_and_telegram):  # todo force to check if telegram id is already linked to another user
     username = user_and_telegram[0]
     telegram_id = user_and_telegram[1]
     users = list_users(full_info=True)
@@ -217,6 +223,13 @@ def get_id_from_username(username):
     return my_user['user_id']
 
 
+def get_username_from_id(user_id):
+    users = list_users(full_info=True)
+    my_user = users.loc[users['user_id'] == user_id].iloc[0]
+
+    return my_user['username']
+
+
 def new_trx_with_equal_split(data):
     from classes import Trx
     trx_value = data['amount']
@@ -227,8 +240,6 @@ def new_trx_with_equal_split(data):
     debtors_ids = []
     for debtor in debtors:
         debtors_ids.append(get_id_from_username(debtor))
-    print(creditor_id)
-    print(trx_value)
     trx = Trx(creditor_id=creditor_id, full_amount=float(trx_value), trx_name=trx_name)
     print('SPLITTING')
     trx.equal_split(debtors_ids)

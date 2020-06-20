@@ -11,11 +11,12 @@ def home():
     if request.method == 'POST':
         username = request.form['username']
         user = User(username=username)
-        # user.load()
-        return render_template('load_user.html', f_name=user.f_name)
+        user.load()
+        balance = user.balance()
+        return render_template('load_user.html', f_name=user.f_name, l_name=user.l_name, debt=balance[0], receivables=balance[1])
 
 
-    return render_template('load_user.html', f_name='')
+    return render_template('load_user.html', f_name='', l_name='', debt='', receivables='')
 
 
 if __name__ == '__main__':

@@ -48,7 +48,13 @@
             </tr>
             <tr>
                 <th>Receivables: </th>
-                <th>*output receivables wil be here*</th>
+                <th>
+                    {% if debt != "" %}
+                    {{receivables}}
+                    {% else %}
+                    receivables will be here
+                    {% endif %}
+                </th>
             </tr>
         </table>
     </form>
