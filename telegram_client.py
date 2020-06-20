@@ -195,7 +195,7 @@ def add_member_to_split(trx, message):
                          reply_markup=types.ReplyKeyboardRemove())
     else:
         trx.debtors_id = trx.debtors_id.append(message.text)
-        process_transaction_split(trx, split_type='Equal split')
+        process_transaction_split(trx, msg, split_type='Equal split')
 
 
 def keyboard_with_users(group=None, exclude_users=[], add_nobody=False):  # todo add option to add a transaction name
