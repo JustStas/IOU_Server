@@ -199,6 +199,8 @@ def add_member_to_split(trx, message):
 
 
 def keyboard_with_users(group=None, exclude_users=[], add_nobody=False):  # todo add option to add a transaction name
+    if exclude_users is None:
+        exclude_users = []
     keyboard = types.ReplyKeyboardMarkup()
     usernames = list_users()
     for username in usernames:
