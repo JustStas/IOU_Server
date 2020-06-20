@@ -213,6 +213,7 @@ def link_telegram_id(user_and_telegram):  #todo force to check if telegram id is
 def get_id_from_username(username):
     users = list_users(full_info=True)
     my_user = users.loc[users['username'] == username].iloc[0]
+
     return my_user['user_id']
 
 
