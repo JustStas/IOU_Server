@@ -4,7 +4,7 @@ import time
 from telebot import types
 from telebot.apihelper import ApiException
 from core import server_conn, list_users
-from classes import User, Trx
+from classes import User
 from support_functions import str_to_list
 
 bot = telebot.TeleBot('1012372350:AAG7N6oZPE5mi9uLSsNwwvN2fZhHEJRlNVk')
@@ -110,14 +110,14 @@ def create_new_user(message, first_try=True):
 
 def check_username(message):
     username = message.text
-    if server_conn('check_user', username) is None or username[:2] == '###':
+    if server_conn('check_user', username) is None:
         get_f_name(message)
     else:
         create_new_user(message, first_try=False)
 
 
 def get_f_name(message):
-    user = User(username=message.text)
+    user = User(username=message.text, telegram_id=message.from_user.id)
     f_name = bot.send_message(message.chat.id, 'What is your first name?',
                               reply_markup=types.ForceReply(selective=False))
     bot.register_next_step_handler(f_name, lambda msg: get_l_name(user, msg))
@@ -148,59 +148,63 @@ def telegram_link_start(message):
 def define_creditor(message):
     try:
         float(message.text)
-        trx = Trx(full_amount=message.text, debtors_id=[])
+        dic = {'amount': message.text, 'debtors': []}
         user_ids = bot.send_message(message.chat.id, 'Who is the creditor?', reply_markup=keyboard_with_users())
-        bot.register_next_step_handler(user_ids, lambda msg: define_trx_name(trx, msg))
+        bot.register_next_step_handler(user_ids, lambda msg: define_trx_name(dic, msg))
     except Exception:
         trx_vol = bot.send_message(message.chat.id, 'That is not a valid sum. Please enter a correct one.',
                                    reply_markup=types.ForceReply(selective=False))
         bot.register_next_step_handler(trx_vol, define_creditor)
 
 
-def define_trx_name(trx, message):
-    trx.creditor_id = server_conn('get_id_from_username', message.text)
-    trx_name = bot.send_message(message.chat.id, 'What is the transaction about?',
-                                reply_markup=types.ForceReply(selective=False))
-    bot.register_next_step_handler(trx_name, lambda msg: define_split_type(trx, msg))
+def define_trx_name(dic, message):
+    dic['creditor'] = message.text
+    trx_name = bot.send_message(message.chat.id, 'What is the transaction about?', reply_markup=types.ForceReply(selective=False))
+    bot.register_next_step_handler(trx_name, lambda msg: define_split_type(dic, msg))
 
 
-def define_split_type(trx, message):
-    trx.trx_name = message.text
+def define_split_type(dic, message):
+    dic['trx_name'] = message.text
     keyboard = types.ReplyKeyboardMarkup()
     splits = ['Equal split']
     for split in splits:
         keyboard.add(types.InlineKeyboardButton(split, callback_data=split))
     split_type = bot.send_message(message.chat.id, 'How would you like to split?', reply_markup=keyboard)
-    bot.register_next_step_handler(split_type, lambda msg: process_transaction_split(trx, msg))
+    bot.register_next_step_handler(split_type, lambda msg: process_transaction_split(dic, msg))
 
 
-def process_transaction_split(trx, message, split_type=None):
-    # dic['split_type'] = message
-    if split_type == 'Equal split' or message.text == 'Equal split':
-        keyboard = keyboard_with_users(exclude_users=trx.debtors_id, add_nobody=True)
+def process_transaction_split(dic, message):
+    print('dic', dic)
+    dic['split_type'] = message
+    if dic['split_type'].text == 'Equal split':
+        keyboard = keyboard_with_users(exclude_users=dic['debtors'], add_nobody=True)
         split_member = bot.send_message(message.chat.id,
                                         'Who would you like to include? Select "Nobody" to end allocation',
                                         reply_markup=keyboard)  # Todo Will need to replace "Nobody" with some shit otherwise such a username will break everything
-        bot.register_next_step_handler(split_member, lambda msg: add_member_to_split(trx, msg))
+        bot.register_next_step_handler(split_member, lambda msg: add_member_to_split(dic, msg))
 
 
-def add_member_to_split(trx, message):
+def add_member_to_split(dic, message):
     print('TEXT', message.text)
-    if message.text == '###Nobody':
-        server_conn('new_trx_with_equal_split', trx)
+    if message.text == 'Nobody':
+        server_conn('new_trx_with_equal_split', {'amount': dic['amount'],
+                                                 'creditor': dic['creditor'],
+                                                 'debtors': dic['debtors'],
+                                                 'trx_name': dic['trx_name']})
 
         bot.send_message(message.chat.id, '''{0}'s transaction of {1} has been equally split among {2}.'''.format(
-            server_conn('get_username_from_id', trx.creditor_id), trx.full_amount,
-            ', '.join(server_conn('get_username_from_id', i) for i in trx.debtors_id)),
+            dic['creditor'], dic['amount'], ', '.join(dic['debtors'])),
                          reply_markup=types.ReplyKeyboardRemove())
     else:
-        trx.debtors_id = trx.debtors_id.append(message.text)
-        process_transaction_split(trx, message, split_type='Equal split')
+        print('DIC', dic['debtors'])
+        print('TEXT', message.text)
+        dic['debtors'].append(message.text)
+        print('DIC', dic['debtors'])
+        process_transaction_split(dic, dic['split_type'])
 
 
 def keyboard_with_users(group=None, exclude_users=[], add_nobody=False):  # todo add option to add a transaction name
-    if exclude_users is None:
-        exclude_users = []
+    print('Excl', exclude_users)
     keyboard = types.ReplyKeyboardMarkup()
     usernames = list_users()
     for username in usernames:
@@ -209,7 +213,7 @@ def keyboard_with_users(group=None, exclude_users=[], add_nobody=False):  # todo
         else:
             keyboard.add(types.InlineKeyboardButton(username, callback_data=username))
     if add_nobody:
-        keyboard.add(types.InlineKeyboardButton('Nobody', callback_data='###Nobody'))
+        keyboard.add(types.InlineKeyboardButton('Nobody', callback_data='Nobody'))
     return keyboard
 
 

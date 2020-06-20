@@ -20,11 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e37e72c-7286-4c37-8ef5-9f574f46aaba" name="Default Changelist" comment="added name for new trx in telegram">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/core.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/paths.py" beforeDir="false" afterPath="$PROJECT_DIR$/paths.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/telegram_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/telegram_client.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -183,34 +178,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1590247308094</updated>
-    </task>
-    <task id="LOCAL-00097" summary="Added trx creation and equal splitting">
-      <created>1592251510377</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
-      <option name="project" value="LOCAL" />
-      <updated>1592251510377</updated>
-    </task>
-    <task id="LOCAL-00098" summary="Added trx creation and equal splitting">
-      <created>1592251634511</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
-      <option name="project" value="LOCAL" />
-      <updated>1592251634511</updated>
-    </task>
-    <task id="LOCAL-00099" summary="Added trx creation and equal splitting">
-      <created>1592252418497</created>
-      <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
-      <option name="project" value="LOCAL" />
-      <updated>1592252418497</updated>
-    </task>
-    <task id="LOCAL-00100" summary="Added trx creation and equal splitting">
-      <created>1592252515806</created>
-      <option name="number" value="00100" />
-      <option name="presentableId" value="LOCAL-00100" />
-      <option name="project" value="LOCAL" />
-      <updated>1592252515806</updated>
     </task>
     <task id="LOCAL-00101" summary="Added trx creation and equal splitting">
       <created>1592252537617</created>
@@ -527,8 +494,46 @@
       <option name="project" value="LOCAL" />
       <updated>1592655531545</updated>
     </task>
-    <option name="localTasksCounter" value="146" />
+    <task id="LOCAL-00146" summary="added name for new trx in telegram">
+      <created>1592662930332</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1592662930332</updated>
+    </task>
+    <task id="LOCAL-00147" summary="added name for new trx in telegram">
+      <created>1592663035199</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1592663035199</updated>
+    </task>
+    <task id="LOCAL-00148" summary="added name for new trx in telegram">
+      <created>1592663047448</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1592663047448</updated>
+    </task>
+    <task id="LOCAL-00149" summary="added name for new trx in telegram">
+      <created>1592663169375</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL-00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1592663169375</updated>
+    </task>
+    <option name="localTasksCounter" value="150" />
     <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -576,6 +581,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="587" y="88" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1591537811854" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1592663762587">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1592663762587" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1592654713459">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -600,9 +609,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1592654976589" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1592655532836">
+    <state x="818" y="217" key="VCS.ChangeListViewerDialog" timestamp="1592663403577">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1592655532836" />
+    <state x="818" y="217" key="VCS.ChangeListViewerDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1592663403577" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1592663170579">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1592663170579" />
   </component>
 </project>
