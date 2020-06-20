@@ -221,12 +221,13 @@ def new_trx_with_equal_split(data):
     trx_value = data['amount']
     creditor = data['creditor']
     debtors = data['debtors']
+    trx_name = data['trx_name']
     creditor_id = get_id_from_username(creditor)
     debtors_ids = []
     for debtor in debtors:
         debtors_ids.append(get_id_from_username(debtor))
     print(creditor_id)
     print(trx_value)
-    trx = Trx(creditor_id=creditor_id, full_amount=float(trx_value), trx_name='This is the one')
+    trx = Trx(creditor_id=creditor_id, full_amount=float(trx_value), trx_name=trx_name)
     print('SPLITTING')
     trx.equal_split(debtors_ids)

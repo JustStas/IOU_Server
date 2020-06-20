@@ -134,7 +134,8 @@ def get_l_name(dic, message):
 def finish_user_creation(dic, message):
     dic['l_name'] = message.text
     user = User(username=dic['username'], f_name=dic['f_name'], l_name=dic['l_name'], telegram_id=message.from_user.id)
-    user.write() ## todo add message about successful user creation
+    user.write()
+    bot.send_message(message.chat.id, 'User {} successfully created'.format(dic['username']))
 
 
 @bot.message_handler(commands=['new_trx'])
@@ -149,11 +150,17 @@ def define_creditor(message):
         float(message.text)
         dic = {'amount': message.text, 'debtors': []}
         user_ids = bot.send_message(message.chat.id, 'Who is the creditor?', reply_markup=keyboard_with_users())
-        bot.register_next_step_handler(user_ids, lambda msg: define_split_type(dic, msg))
+        bot.register_next_step_handler(user_ids, lambda msg: define_trx_name(dic, msg))
     except Exception:
         trx_vol = bot.send_message(message.chat.id, 'That is not a valid sum. Please enter a correct one.',
                                    reply_markup=types.ForceReply(selective=False))
         bot.register_next_step_handler(trx_vol, define_creditor)
+
+
+def define_trx_name(dic, message):
+    dic['creditor'] = message.text
+    trx_name = bot.send_message(message.chat.id, 'What is the transaction about?', reply_markup=types.ForceReply(selective=False))
+    bot.register_next_step_handler(trx_name, lambda msg: define_split_type(dic, msg))
 
 
 def define_split_type(dic, message):
@@ -182,7 +189,8 @@ def add_member_to_split(dic, message):
     if message.text == 'Nobody':
         server_conn('new_trx_with_equal_split', {'amount': dic['amount'],
                                                  'creditor': dic['creditor'],
-                                                 'debtors': dic['debtors']})
+                                                 'debtors': dic['debtors'],
+                                                 'trx_name': dic['trx_name']})
 
         bot.send_message(message.chat.id, '''{0}'s transaction of {1} has been equally split among {2}.'''.format(
             dic['creditor'], dic['amount'], ', '.join(dic['debtors'])),
