@@ -20,7 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e37e72c-7286-4c37-8ef5-9f574f46aaba" name="Default Changelist" comment="added name for new trx in telegram">
-      <change beforePath="$PROJECT_DIR$/telegram_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/telegram_client.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client_connection.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/core.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +55,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../IOU_client" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.telegram_client">
+  <component name="RunManager" selected="Python.tests">
     <configuration name="connection" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Slptws_server" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -66,27 +69,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/connection.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="server_main" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Slptws_server" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="D:\OneDrive\Slptws_server\connection.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -158,13 +140,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="tests" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Slptws_server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.tests" />
         <item itemvalue="Python.telegram_client" />
         <item itemvalue="Python.telebot_client (1)" />
         <item itemvalue="Python.telebot_client" />
         <item itemvalue="Python.connection" />
-        <item itemvalue="Python.server_main" />
       </list>
     </recent_temporary>
   </component>
@@ -178,13 +181,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1590247308094</updated>
-    </task>
-    <task id="LOCAL-00101" summary="Added trx creation and equal splitting">
-      <created>1592252537617</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
-      <option name="project" value="LOCAL" />
-      <updated>1592252537617</updated>
     </task>
     <task id="LOCAL-00102" summary="Added trx creation and equal splitting">
       <created>1592252897622</created>
@@ -522,7 +518,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592663169375</updated>
     </task>
-    <option name="localTasksCounter" value="150" />
+    <task id="LOCAL-00150" summary="added name for new trx in telegram">
+      <created>1592663766411</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1592663766411</updated>
+    </task>
+    <option name="localTasksCounter" value="151" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -589,22 +592,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1592654713459" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1591723247817">
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1592668014590">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591723247817" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1591723247817">
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1592668014590" />
+    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1592668014590">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591723247817" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1591723247817">
+    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1592668014590" />
+    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1592668014589">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591723247817" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1591723247817">
+    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1592668014589" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1592668014590">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591723247817" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1592668014590" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1592654976589">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -613,9 +616,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="818" y="217" key="VCS.ChangeListViewerDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1592663403577" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1592663170579">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1592663768906">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1592663170579" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1592663768906" />
   </component>
 </project>
